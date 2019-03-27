@@ -1,0 +1,34 @@
+<form class="form-horizontal" action='' method="POST">
+ 
+    <div class="control-group">
+      <!-- Model -->
+      <label class="control-label"  for="model">Model</label>
+      <div class="controls">
+        <input type="text" id="model" name="model" placeholder="" class="input-xlarge" [(ngModel)]="this.vehicle.model">
+        <p class="help-block">Model can contain any letters, without spaces</p>
+      </div>
+    </div>
+ 
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="numOfSeats">Number of seats</label>
+      <div class="controls">
+        <input type="text" id="numOfSeats" name="numOfSeats" placeholder="" class="input-xlarge" [(ngModel)]="this.vehicle.numOfSeats">
+        <p class="help-block">Please input number of seats</p>
+      </div>
+    </div>
+  
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Add vehicle</button>
+      </div>
+    </div>
+</form>
+
+
+<ul>
+  <li *ngFor="let vehicle of vehicles; let i = index">
+    <p>{{vehicle.model}}</p>
+  </li>
+</ul>
