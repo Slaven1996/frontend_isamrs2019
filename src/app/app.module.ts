@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ToastrModule.forRoot({preventDuplicates: true})
+
   ],
   providers: [],
   bootstrap: [AppComponent]
