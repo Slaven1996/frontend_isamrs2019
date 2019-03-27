@@ -7,11 +7,13 @@ import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
+import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddVehicleComponent
+    AddVehicleComponent,
+    VehicleSEDComponent
   ],
   imports: [
     BrowserModule,

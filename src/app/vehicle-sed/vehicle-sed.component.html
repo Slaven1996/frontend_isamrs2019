@@ -1,0 +1,46 @@
+<div class="control-group">
+    <!-- Model -->
+    <label class="control-label"  for="model">Search model</label>
+    <div class="controls">
+      <input type="text" id="model" name="model" placeholder="" class="input-xlarge" [(ngModel)]="this.searchParam" >
+      <p></p>
+    </div>
+  </div>
+
+  <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button (click)='searchVehicles()' class="btn btn-success">Search model </button>
+        <button (click)='getVehicles()' class="btn btn-success">See all vehicles</button>
+      </div>
+    </div>
+
+ 
+<table  class="table table-bordered table-hover table-dark">
+  <thead>
+    <tr>
+      <th>ID</th><th>Model</th><th>Number of seats</th><th>Available</th><th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngFor="let vehicle of vehicles; let i = index">
+      <td>
+        {{vehicle.id}}.
+      </td>
+      <td>
+        {{vehicle.model}}
+      </td>
+      <td>
+        {{vehicle.numOfSeats}}
+      </td>
+      <td>
+        {{vehicle.available}}
+      </td>
+      <td>
+        {{vehicle.rating}}
+      </td>
+    </tr>
+
+  </tbody>
+</table>

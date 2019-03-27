@@ -37,12 +37,7 @@ export class AddVehicleComponent implements OnInit {
     else{
       this.toastr.error('Morate uneti marku!');
     }
-
-    
   }
-
-
-
 
   getVehicles(){
     this.vehicles = [];
