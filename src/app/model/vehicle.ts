@@ -1,6 +1,5 @@
 export interface Vehicle {
-
-    id: string;
+	id: string;
 	model: string;
 	numOfSeats: number;
 	available: boolean;

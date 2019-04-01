@@ -27,22 +27,22 @@ export class AddVehicleComponent implements OnInit {
     this.getVehicles();
   }
   
-  addVehicle(){
-    if (this.vehicle.model != ''){
+  addVehicle() {
+    if (this.vehicle.model !== '') {
       const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
       return this.http.post("http://localhost:8080/api/rentacar/addVehicle", this.vehicle, {headers}).subscribe(
-        ()=>{this.toastr.success("Uspesno dodato."), this.getVehicles()}
+        () => {this.toastr.success("Uspesno dodato."), this.getVehicles()}
       )
     }
-    else{
+    else {
       this.toastr.error('Morate uneti marku!');
     }
   }
 
-  getVehicles(){
+  getVehicles() {
     this.vehicles = [];
     return this.http.get("http://localhost:8080/api/rentacar/getVehicles").subscribe(
-      (list: Vehicle[])=>{
+      (list: Vehicle[]) => {
         this.vehicles = list;
       }
     );
