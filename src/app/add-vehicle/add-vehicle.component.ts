@@ -30,7 +30,7 @@ export class AddVehicleComponent implements OnInit {
   addVehicle() {
     if (this.vehicle.model !== '') {
       const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-      return this.http.post("http://localhost:8080/api/rentacar/addVehicle", this.vehicle, {headers}).subscribe(
+      return this.http.post("http://localhost:8080/api/vehicle/addVehicle", this.vehicle, {headers}).subscribe(
         () => {this.toastr.success("Uspesno dodato."), this.getVehicles()}
       )
     }
@@ -41,7 +41,7 @@ export class AddVehicleComponent implements OnInit {
 
   getVehicles() {
     this.vehicles = [];
-    return this.http.get("http://localhost:8080/api/rentacar/getVehicles").subscribe(
+    return this.http.get("http://localhost:8080/api/vehicle/getVehicles").subscribe(
       (list: Vehicle[]) => {
         this.vehicles = list;
       }

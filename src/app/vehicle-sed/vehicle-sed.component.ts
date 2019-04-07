@@ -29,7 +29,7 @@ export class VehicleSEDComponent implements OnInit {
 
   searchVehicles(){
     this.vehicles = [];
-    return this.http.get("http://localhost:8080/api/rentacar/searchVehicles/" + this.searchParam).subscribe(
+    return this.http.get("http://localhost:8080/api/vehicle/searchVehicles/" + this.searchParam).subscribe(
       (list: Vehicle[])=>{
         this.vehicles = list;
       }
@@ -40,7 +40,7 @@ export class VehicleSEDComponent implements OnInit {
 
   getVehicles(){
     this.vehicles = [];
-    return this.http.get("http://localhost:8080/api/rentacar/getVehicles").subscribe(
+    return this.http.get("http://localhost:8080/api/vehicle/getVehicles").subscribe(
       (list: Vehicle[])=>{
         this.vehicles = list;
       }
