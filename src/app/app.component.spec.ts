@@ -1,16 +1,21 @@
 import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { GenericService } from './service/generic.service';
+import { ToastrService } from 'ngx-toastr';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
         AppComponent
       ],
+      imports: [RouterTestingModule, HttpClientModule],
+      providers: [ 
+        GenericService, ToastrService,
+        { provide: 'BASE_API_URL', useValue: 'http://localhost:8080/api' }
+      ]
     }).compileComponents();
   }));
 
