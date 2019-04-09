@@ -1,18 +1,21 @@
-    <div class="container">
-        <div class="table-wrapper">
-            <div class="table-title">
-                <div class="row">
-                    <div class="col-sm-8"><h2>Vehicle <b>Details</b></h2></div>
-                    <div class="col-sm-4">
-                        <div class="search-box">
-                            <input type="text" id="model" name="model"  class="form-control" placeholder="Search&hellip;" [(ngModel)]="this.searchParam">
-                            <button (click)='getVehicles()' class="btn btn-success">See all vehicles</button>
-                            <button (click)='searchVehicles()' class="btn btn-success">Search model </button>
-                            
-                        </div>
+<body>
+<div class="container">
+    <div class="table-wrapper">
+        <div class="table-title">
+            <div class="row">
+                <div class="col-sm-8"><h2>Vehicle <b>Details</b></h2></div>
+                <div class="col-sm-4">
+                    <div class="search-box">
+                        
+                        <input type="text" id="model" name="model"  class="form-control" placeholder="Search&hellip;" [(ngModel)]="this.searchParam">
+                        <button (click)='addVehicle()' class="btn btn-success">Add vehicle</button>
+                        <button (click)='getVehicles()' class="btn btn-success">See all vehicles</button>
+                        <button (click)='searchVehicles()' class="btn btn-success">Search model </button>
+                        
                     </div>
                 </div>
-              </div>
+            </div>
+          </div>
  
 <table  class="table table-bordered table-hover table-dark">
   <thead>
@@ -21,9 +24,11 @@
       <th>Model</th>
       <th>Number of seats</th>
       <th>GearBox</th>
+      <th>Year</th>
       <th>Available</th>
       <th>Rating</th>
-      <th>Action</th>
+      <th>Price per day</th>
+      <th style="width: 15%">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -42,14 +47,20 @@
         {{vehicle.gearBox}}
       </td>
       <td>
+        {{vehicle.godinaProizvodnje}}
+        </td>
+      <td>
         {{vehicle.available}}
       </td>
       <td>
         {{vehicle.rating}}
       </td>
       <td>
-        <a href="#editEmployeeModal" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
-        <a href="#deleteEmployeeModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+          {{vehicle.pricePerDay}}
+      </td>
+      <td>
+        <button (click)='deleteVehicle(vehicle.id)' type="button" class="btn btn-danger">Delete</button>
+        <button type="button" class="btn btn-warning">Edit</button>
     </td>
     </tr>
 
@@ -59,5 +70,5 @@
         </div>
     </div>
 </div>     
-
+</body>
 

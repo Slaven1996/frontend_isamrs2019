@@ -4,6 +4,7 @@ import { VehicleBackEnd } from '../model/vehicle-back-end';
 import { Vehicle } from '../model/vehicle';
 import { ToastrService } from 'ngx-toastr';
 import { isNumber } from 'util';
+import { Router, RouterLink } from '@angular/router'
 
 @Component({
   selector: 'app-add-vehicle',
@@ -16,22 +17,27 @@ export class AddVehicleComponent implements OnInit {
   public vehicles: Vehicle[];
   public temp: String;
 
+ 
 
 
-  constructor(private http: HttpClient, private toastr: ToastrService) {
+
+  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) {
       this.vehicle = {model: '', numOfSeats: 0};
      
   }
 
   ngOnInit() {
-    this.getVehicles();
+    
   }
+
+
   
   addVehicle() {
     if (this.vehicle.model !== '') {
       const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
       return this.http.post("http://localhost:8080/api/vehicle/addVehicle", this.vehicle, {headers}).subscribe(
-        () => {this.toastr.success("Uspesno dodato."), this.getVehicles()}
+        result => { alert("Successfully added vehicle. New " + this.vehicle.model + " vehicle added.");
+        this.allVehicles()}
       )
     }
     else {
@@ -48,7 +54,8 @@ export class AddVehicleComponent implements OnInit {
     );
   }
 
-
-
+  allVehicles(){    
+    this.router.navigate(["/vehiclesSED"]);
+  }
 
 }
