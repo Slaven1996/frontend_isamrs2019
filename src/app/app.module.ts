@@ -13,7 +13,9 @@ import {NgbModule, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
 import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { GenericService } from './service/generic.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddAirlineComponent } from './add-airline/add-airline.component';
+import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';  
 //import { NgbdTimepickerBasic } from './timepicker-basic';
 //import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -26,7 +28,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddVehicleComponent,
     VehicleSEDComponent,
     AddFlightComponent,
-    AddHotelComponent
+    AddHotelComponent,
+    AddAirlineComponent,
+    AddRentacarComponent
   ],
   imports: [
     BrowserModule,

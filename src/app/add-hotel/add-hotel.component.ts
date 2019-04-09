@@ -35,7 +35,10 @@ export class AddHotelComponent implements OnInit {
       this.toastr.error('Street is empty!');
       stopAdding = true;
     }
-
+    if (!this.hotel.state || this.hotel.state === '') {
+      this.toastr.error('State is empty!');
+      stopAdding = true;
+    }
     if (!this.hotel.city || this.hotel.city === '') {
       this.toastr.error('City is empty!');
       stopAdding = true;
