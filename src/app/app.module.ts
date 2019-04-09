@@ -11,6 +11,9 @@ import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
 import {NgbModule, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
 import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-datetimepicker';
+import { AddHotelComponent } from './add-hotel/add-hotel.component';
+import { GenericService } from './service/generic.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';  
 //import { NgbdTimepickerBasic } from './timepicker-basic';
 //import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -22,7 +25,8 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
     AppComponent,
     AddVehicleComponent,
     VehicleSEDComponent,
-    AddFlightComponent
+    AddFlightComponent,
+    AddHotelComponent
   ],
   imports: [
     BrowserModule,
@@ -32,12 +36,16 @@ import { DlDateTimeDateModule, DlDateTimePickerModule } from 'angular-bootstrap-
     NgbModule,
     DlDateTimeDateModule,
     DlDateTimePickerModule,
+    BrowserAnimationsModule,
    // OwlDateTimeModule,
    // OwlNativeDateTimeModule,
     ToastrModule.forRoot({preventDuplicates: true})
 
   ],
   providers: [
+    GenericService,
+    { provide: 'BASE_API_URL', useValue: 'http://localhost:8080/api' }
+
   ],
   bootstrap: [AppComponent]
 })
