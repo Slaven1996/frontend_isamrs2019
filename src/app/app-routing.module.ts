@@ -11,6 +11,7 @@ import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
 
 const routes: Routes = [
   { path: 'add-vehicle', component: AddVehicleComponent},
+  { path: 'edit-vehicle/:id', component: AddVehicleComponent},
   { path: 'vehiclesSED', component: VehicleSEDComponent},
   { path: 'add-flight', component: AddFlightComponent},
   { path: 'add-hotel', component: AddHotelComponent},

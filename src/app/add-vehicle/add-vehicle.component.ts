@@ -4,7 +4,8 @@ import { VehicleBackEnd } from '../model/vehicle-back-end';
 import { Vehicle } from '../model/vehicle';
 import { ToastrService } from 'ngx-toastr';
 import { isNumber } from 'util';
-import { Router, RouterLink } from '@angular/router'
+import { Router, RouterLink, ActivatedRoute } from '@angular/router'
+import { VehicleService } from '../services/vehicle.service';
 
 @Component({
   selector: 'app-add-vehicle',
@@ -14,47 +15,52 @@ import { Router, RouterLink } from '@angular/router'
 export class AddVehicleComponent implements OnInit {
   public vehicle: VehicleBackEnd;
 
-  public vehicles: Vehicle[];
-  public temp: String;
-
- 
-
-
-
-  constructor(private http: HttpClient, private toastr: ToastrService, private router: Router) {
-      this.vehicle = {model: '', numOfSeats: 0};
-     
+  constructor(
+    private vehicleService : VehicleService,
+     private toastr: ToastrService, 
+     private router: Router,
+     private route: ActivatedRoute
+     ) {
+    this.vehicle = { model: '', numOfSeats: 0 };
   }
 
   ngOnInit() {
-    
+     if(this.router.url != "add-vehicle"){
+      this.getEditVehicle();
+     }
   }
 
-
-  
+  getEditVehicle(){
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.vehicleService.getVehicle(id).subscribe(vehicle => this.vehicle = vehicle);
+  }
   addVehicle() {
     if (this.vehicle.model !== '') {
-      const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
-      return this.http.post("http://localhost:8080/api/vehicle/addVehicle", this.vehicle, {headers}).subscribe(
-        result => { alert("Successfully added vehicle. New " + this.vehicle.model + " vehicle added.");
-        this.allVehicles()}
-      )
+      if(this.router.url != "add-vehicle"){
+        this.vehicleService.editVehicle(this.vehicle);
+      }
+      else{
+        this.vehicleService.addVehicle(this.vehicle);
+      }
+      
+      this.allVehicles();
     }
     else {
       this.toastr.error('Morate uneti marku!');
     }
   }
 
-  getVehicles() {
-    this.vehicles = [];
-    return this.http.get("http://localhost:8080/api/vehicle/getVehicles").subscribe(
-      (list: Vehicle[]) => {
-        this.vehicles = list;
-      }
-    );
+  editVehicle() {
+    if (this.vehicle.model !== '') {
+      this.vehicleService.editVehicle(this.vehicle);
+      this.allVehicles();
+    }
+    else {
+      this.toastr.error('Morate uneti marku!');
+    }
   }
 
-  allVehicles(){    
+  allVehicles() {
     this.router.navigate(["/vehiclesSED"]);
   }
 
