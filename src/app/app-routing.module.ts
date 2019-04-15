@@ -6,6 +6,8 @@ import { AddFlightComponent } from './add-flight/add-flight.component';
 import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { AddAirlineComponent } from './add-airline/add-airline.component';
 import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
+import { ShowHotelsComponent } from './show-hotels/show-hotels.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
 
 
 
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'add-hotel', component: AddHotelComponent},
   { path: 'add-airline', component: AddAirlineComponent},
   { path: 'add-rentacar', component: AddRentacarComponent},
+  { path: 'show-hotels' , component: ShowHotelsComponent},
+  { path: 'add-admin'  , component: AddAdminComponent},
 
 
 

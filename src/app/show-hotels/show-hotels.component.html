@@ -1,0 +1,29 @@
+<h4 *ngIf="!hotels || hotels.length===0">&nbsp;&nbsp;There are currently no hotels.</h4>
+<div class="table-responsive" *ngIf="hotels && hotels.length > 0">
+  <h1> HOTELS </h1>
+  <br>
+    <div *ngFor="let hotel of hotels" >
+        <div class="card" >
+                <div class="card-header">
+                        Hotel name: &nbsp;&nbsp; {{hotel.name}}
+                </div>
+              <p class="card-text">
+                      Description: &nbsp;&nbsp; {{hotel.description}}
+              </p>
+              <p class="card-text" >
+                    Stars: &nbsp;&nbsp; {{hotel.stars}}  
+              </p>
+                <p class="card-text">
+                    City: &nbsp;&nbsp; {{hotel.city}}
+                </p>    
+                <p class="card-text">
+                    State: &nbsp;&nbsp; {{hotel.state}}
+                </p>
+                <p class="card-text">
+                    Street: &nbsp;&nbsp; {{hotel.street}}
+                </p>
+                <button id="show_rooms" class="btn btn-primary" (click)="show_rooms(hotel.name)"> Show rooms</button>
+                <br>
+      </div>
+  </div>
+</div>

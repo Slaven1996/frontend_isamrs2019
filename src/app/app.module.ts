@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
 import { AddFlightComponent } from './add-flight/add-flight.component';
@@ -15,7 +15,9 @@ import { AddHotelComponent } from './add-hotel/add-hotel.component';
 import { GenericService } from './service/generic.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddAirlineComponent } from './add-airline/add-airline.component';
-import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';  
+import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
+import { AddAdminComponent } from './add-admin/add-admin.component';
+import { ShowHotelsComponent } from './show-hotels/show-hotels.component';  
 //import { NgbdTimepickerBasic } from './timepicker-basic';
 //import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -30,7 +32,9 @@ import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
     AddFlightComponent,
     AddHotelComponent,
     AddAirlineComponent,
-    AddRentacarComponent
+    AddRentacarComponent,
+    AddAdminComponent,
+    ShowHotelsComponent
   ],
   imports: [
     BrowserModule,
@@ -41,6 +45,7 @@ import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
     DlDateTimeDateModule,
     DlDateTimePickerModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
    // OwlDateTimeModule,
    // OwlNativeDateTimeModule,
     ToastrModule.forRoot({preventDuplicates: true})
