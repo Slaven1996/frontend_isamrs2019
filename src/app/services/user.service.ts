@@ -16,7 +16,6 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   addUser(user){
-    debugger;
     this.http.post<User>(this.userUrl, user)
     .subscribe(
       addedUser =>{

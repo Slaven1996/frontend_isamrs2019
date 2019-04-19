@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink, ActivatedRoute } from '@angular/router'
 import { ToastrService } from 'ngx-toastr';
 import { userBackend } from '../model/user-backend';
-import { UserService} from '../services/user.service'
+import { UserService} from '../services/user.service';
+import { User} from '../model/user';
 
 @Component({
   selector: 'app-registration',
@@ -11,31 +12,26 @@ import { UserService} from '../services/user.service'
 })
 export class RegistrationComponent implements OnInit {
 
-  public user: userBackend;
+  public user: User;
 
   constructor(
     private userService : UserService,
     private toastr : ToastrService,
     private router : Router,
     private route : ActivatedRoute
-    )  {
-      this.user = {firstName: '', lastName:''};
-    }
+    )  
+    {this.user = {firstName: '', lastName: '', username: '', password: '', email: '', phoneNumber: '', city: '' };
+  }
   
-
   ngOnInit() {
   }
 
   addUser(){
-    debugger;
-    alert(this.router.url);
-    if(this.user.firstName !== '') {
-      alert("aaaaaaaa prazan string")
+    if(this.user.username !== '') {
       if(this.router.url != "/registration"){
-        alert("Bad")
+        alert("Wrong input")
       }
       else{
-        alert("adduser")
         this.userService.addUser(this.user);
       }
     }
