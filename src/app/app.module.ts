@@ -20,6 +20,9 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ShowHotelsComponent } from './show-hotels/show-hotels.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
 
 //import { NgbdTimepickerBasic } from './timepicker-basic';
 //import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
@@ -40,7 +43,7 @@ import { LoginComponent } from './login/login.component';
     ShowHotelsComponent,
     RegistrationComponent,
     LoginComponent,
- 
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,6 +55,7 @@ import { LoginComponent } from './login/login.component';
     DlDateTimePickerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    AngularFontAwesomeModule,
    // OwlDateTimeModule,
    // OwlNativeDateTimeModule,
     ToastrModule.forRoot({preventDuplicates: true})

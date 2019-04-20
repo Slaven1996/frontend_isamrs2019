@@ -19,7 +19,6 @@ export class AddHotelComponent implements OnInit {
       this.relativeUrl = '/sys_admin/add_hotel';
 
     }
-  
 
   ngOnInit() {
   }
@@ -63,7 +62,6 @@ export class AddHotelComponent implements OnInit {
       },
       () => this.toastr.error('You have unsuccessfully added hotel!')
     );
-    
   }
 
 }

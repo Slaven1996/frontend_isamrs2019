@@ -18,9 +18,6 @@ export class AddFlightComponent implements OnInit {
   public toDate: any;
   public timeTo: string;
 
-  //public time: NgbTimeStruct = {hour: 13, minute: 30, second: 30};
-
-
 
   constructor(private http: HttpClient, private toastr: ToastrService, private calendar: NgbCalendar) {
     this.flight = {flightNumber: '', airplaneModel: '', fromAirportId: '', toAirportId: '', departureDateTime: '', arrivalDateTime: ''};
