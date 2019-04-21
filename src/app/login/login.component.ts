@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     {
       if(result)
       { 
-        alert(result)
+        alert("Uspesno ste se ulogovali!")
       }
     });
   }
