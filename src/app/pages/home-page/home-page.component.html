@@ -1,0 +1,25 @@
+
+<section id="tabs">
+  <div class="row">
+      <div class="col-xl-12 ">
+          <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                  <a class="nav-item nav-link active" id="nav-show-hotels" data-toggle="tab" href="#nav-show-hotels" role="tab" aria-controls="nav-show-hotels" aria-selected="true">Hotels</a>
+                  <a class="nav-item nav-link" id="nav-show-airlines" data-toggle="tab" href="#nav-show-airlines" role="tab" aria-controls="nav-show-airlines" aria-selected="false">Airlines</a>
+                  <a class="nav-item nav-link" id="nav-show-rent-a-cars" data-toggle="tab" href="#nav-show-rent-a-cars" role="tab" aria-controls="nav-show-rent-a-cars" aria-selected="false">Rent-a-cars</a>
+              </div>
+          </nav>
+          <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-show-requests" role="tabpanel" aria-labelledby="nav-show-requests-tab">
+                  <app-show-hotels></app-show-hotels>
+              </div>
+              <div class="tab-pane fade" id="nav-add-admin" role="tabpanel" aria-labelledby="nav-add-admin-tab">
+                <app-show-hotels></app-show-hotels>
+            </div>
+              <div class="tab-pane fade" id="nav-work-with-admins" role="tabpanel" aria-labelledby="nav-work-with-admins-tab">
+                <app-show-hotels></app-show-hotels>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>

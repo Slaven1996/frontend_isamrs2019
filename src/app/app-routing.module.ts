@@ -21,6 +21,11 @@ const routes: Routes = [
   { path: 'add-rentacar', component: AddRentacarComponent},
   { path: 'show-hotels' , component: ShowHotelsComponent},
   { path: 'add-admin'  , component: AddAdminComponent},
+  { path: '', // localhost:4200 redirect to localhost:4200/home-page
+    redirectTo: '/add-admin',
+    pathMatch: 'full'
+  },
+ // { path: '**', component: NotFoundPageComponent } 
 
 
 

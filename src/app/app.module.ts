@@ -17,7 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AddAirlineComponent } from './add-airline/add-airline.component';
 import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
-import { ShowHotelsComponent } from './show-hotels/show-hotels.component';  
+import { ShowHotelsComponent } from './show-hotels/show-hotels.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';  
 //import { NgbdTimepickerBasic } from './timepicker-basic';
 //import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -34,7 +35,8 @@ import { ShowHotelsComponent } from './show-hotels/show-hotels.component';
     AddAirlineComponent,
     AddRentacarComponent,
     AddAdminComponent,
-    ShowHotelsComponent
+    ShowHotelsComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
