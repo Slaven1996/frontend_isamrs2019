@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
@@ -22,6 +22,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { HttpErrorInterceptor } from './interceptors/http-error-interceptor';
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
 
 
 //import { NgbdTimepickerBasic } from './timepicker-basic';
@@ -62,9 +64,10 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     GenericService,
     { provide: 'BASE_API_URL', useValue: 'http://localhost:8080/api' }
-
   ],
   bootstrap: [AppComponent]
 })

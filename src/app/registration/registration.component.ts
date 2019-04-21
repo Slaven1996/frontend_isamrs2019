@@ -20,7 +20,8 @@ export class RegistrationComponent implements OnInit {
     private router : Router,
     private route : ActivatedRoute
     )  
-    {this.user = {firstName: '', lastName: '', username: '', password: '', email: '', phoneNumber: '', city: '' };
+  {
+    this.user = new User();
   }
   
   ngOnInit() {

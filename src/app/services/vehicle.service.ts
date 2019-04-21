@@ -60,8 +60,7 @@ export class VehicleService {
   editVehicle(vehicle){
     this.http.put<Vehicle>(this.vehicleUrl, vehicle)
     .subscribe( editedVehicle=>{
-      for (var i = 0; i < this.vehicles.length; i++){
-        debugger;
+      for (var i = 0; i < this.vehicles.length; i++){;
         if (editedVehicle.id === this.vehicles[i].id){
           this.vehicles[i] = editedVehicle;
           this.vehiclesSource.next(this.vehicles);
