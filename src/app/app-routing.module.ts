@@ -11,6 +11,10 @@ import { AddAdminComponent } from './add-admin/add-admin.component';
 import { RegistrationComponent} from './registration/registration.component';
 import { LoginComponent} from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { ShowRentacarsComponent} from './show-rentacars/show-rentacars.component';
+import { ShowAirlinesComponent} from './show-airlines/show-airlines.component';
+
 
 
 
@@ -25,13 +29,14 @@ const routes: Routes = [
   { path: 'show-hotels' , component: ShowHotelsComponent},
   { path: 'add-admin'  , component: AddAdminComponent},
   { path: '', // localhost:4200 redirect to localhost:4200/home-page
-    redirectTo: '/add-admin',
+    redirectTo: '/homepage',
     pathMatch: 'full'
   },
- // { path: '**', component: NotFoundPageComponent } 
   { path: 'registration', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
-  { path: 'profile', component: ProfileComponent}
+  { path: 'profile', component: ProfileComponent},
+  { path: 'homepage', component: HomePageComponent}
+
 
 
 

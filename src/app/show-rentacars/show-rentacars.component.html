@@ -1,0 +1,26 @@
+<h4 *ngIf="!rentacars || rentacars.length===0">&nbsp;&nbsp;There are currently no rentacars.</h4>
+<div class="table-responsive" *ngIf="rentacars && rentacars.length > 0">
+  <h1> Rent-a-cars </h1>
+  <br>
+    <div *ngFor="let rentacar of rentacars" >
+        <div class="card" >
+              <div class="card-header">
+                  Rentacar name: &nbsp;&nbsp; {{rentacar.name}}
+              </div>
+              <p class="card-text">
+                  Description: &nbsp;&nbsp; {{rentacar.description}}
+              </p>
+              <p class="card-text">
+                  City: &nbsp;&nbsp; {{rentacar.city}}
+              </p>    
+              <p class="card-text">
+                  State: &nbsp;&nbsp; {{rentacar.state}}
+              </p>
+              <p class="card-text">
+                  Street: &nbsp;&nbsp; {{rentacar.street}}
+              </p>
+              <button id="show_branch_offices" class="btn btn-primary" (click)="showBranchOffices(rentacar.name)"> Show branch offices</button>
+              <br>
+      </div>
+  </div>
+</div>

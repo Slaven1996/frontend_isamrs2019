@@ -1,25 +1,24 @@
-
 <section id="tabs">
   <div class="row">
       <div class="col-xl-12 ">
           <nav>
               <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                  <a class="nav-item nav-link active" id="nav-show-hotels" data-toggle="tab" href="#nav-show-hotels" role="tab" aria-controls="nav-show-hotels" aria-selected="true">Hotels</a>
-                  <a class="nav-item nav-link" id="nav-show-airlines" data-toggle="tab" href="#nav-show-airlines" role="tab" aria-controls="nav-show-airlines" aria-selected="false">Airlines</a>
-                  <a class="nav-item nav-link" id="nav-show-rent-a-cars" data-toggle="tab" href="#nav-show-rent-a-cars" role="tab" aria-controls="nav-show-rent-a-cars" aria-selected="false">Rent-a-cars</a>
+                  <a class="nav-item nav-link" id="nav-show-hotels-tab" data-toggle="tab" href="#nav-show-hotels" role="tab" aria-controls="nav-show-hotels" aria-selected="true">Hotels</a>
+                  <a class="nav-item nav-link" id="nav-show-airlines-tab" data-toggle="tab" href="#nav-show-airlines" role="tab" aria-controls="nav-show-airlines" aria-selected="false">Airlines</a>
+                  <a class="nav-item nav-link active" id="nav-show-rent-a-cars-tab" data-toggle="tab" href="#nav-show-rent-a-cars" role="tab" aria-controls="nav-show-rent-a-cars" aria-selected="false">Rent-a-cars</a>
               </div>
           </nav>
           <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-              <div class="tab-pane fade show active" id="nav-show-requests" role="tabpanel" aria-labelledby="nav-show-requests-tab">
-                  <app-show-hotels></app-show-hotels>
-              </div>
-              <div class="tab-pane fade" id="nav-add-admin" role="tabpanel" aria-labelledby="nav-add-admin-tab">
+            <div class="tab-pane fade" id="nav-show-hotels" role="tabpanel" aria-labelledby="nav-show-hotels-tab">
                 <app-show-hotels></app-show-hotels>
             </div>
-              <div class="tab-pane fade" id="nav-work-with-admins" role="tabpanel" aria-labelledby="nav-work-with-admins-tab">
-                <app-show-hotels></app-show-hotels>
+            <div class="tab-pane fade" id="nav-show-airlines" role="tabpanel" aria-labelledby="nav-show-airlines-tab">
+                <app-show-airlines></app-show-airlines>
+            </div>
+              <div class="tab-pane fade show active" id="nav-show-rent-a-cars" role="tabpanel" aria-labelledby="nav-show-rent-a-cars-tab">
+                <app-show-rentacars></app-show-rentacars>
               </div>
-          </div>
+            </div>
       </div>
   </div>
 </section>

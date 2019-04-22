@@ -23,6 +23,8 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { ShowAirlinesComponent } from './show-airlines/show-airlines.component';
+import { ShowRentacarsComponent } from './show-rentacars/show-rentacars.component';
 
 
 //import { NgbdTimepickerBasic } from './timepicker-basic';
@@ -46,6 +48,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     RegistrationComponent,
     LoginComponent,
     ProfileComponent,
+    ShowAirlinesComponent,
+    ShowRentacarsComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,8 +62,6 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AngularFontAwesomeModule,
-   // OwlDateTimeModule,
-   // OwlNativeDateTimeModule,
     ToastrModule.forRoot({preventDuplicates: true})
 
   ],
