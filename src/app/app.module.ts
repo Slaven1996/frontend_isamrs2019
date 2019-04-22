@@ -19,6 +19,12 @@ import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
 import { ShowHotelsComponent } from './show-hotels/show-hotels.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';  
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+
+
 //import { NgbdTimepickerBasic } from './timepicker-basic';
 //import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
@@ -36,7 +42,10 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     AddRentacarComponent,
     AddAdminComponent,
     ShowHotelsComponent,
-    HomePageComponent
+    HomePageComponent,
+    RegistrationComponent,
+    LoginComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +57,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     DlDateTimePickerModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    AngularFontAwesomeModule,
    // OwlDateTimeModule,
    // OwlNativeDateTimeModule,
     ToastrModule.forRoot({preventDuplicates: true})

@@ -8,6 +8,9 @@ import { AddAirlineComponent } from './add-airline/add-airline.component';
 import { AddRentacarComponent } from './add-rentacar/add-rentacar.component';
 import { ShowHotelsComponent } from './show-hotels/show-hotels.component';
 import { AddAdminComponent } from './add-admin/add-admin.component';
+import { RegistrationComponent} from './registration/registration.component';
+import { LoginComponent} from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -26,6 +29,9 @@ const routes: Routes = [
     pathMatch: 'full'
   },
  // { path: '**', component: NotFoundPageComponent } 
+  { path: 'registration', component: RegistrationComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'profile', component: ProfileComponent}
 
 
 
