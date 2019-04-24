@@ -14,6 +14,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ShowRentacarsComponent} from './show-rentacars/show-rentacars.component';
 import { ShowAirlinesComponent} from './show-airlines/show-airlines.component';
+import { HotelAdminPageComponent } from './pages/hotel-admin-page/hotel-admin-page.component';
+import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.component';
 
 
 
@@ -35,7 +37,12 @@ const routes: Routes = [
   { path: 'registration', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'homepage', component: HomePageComponent}
+  { path: 'homepage', component: HomePageComponent},
+  { path: 'hotel-admin', component: HotelAdminPageComponent},
+  { path: 'sys_admin', component: SysAdminPageComponent}
+
+
+
 
 
 

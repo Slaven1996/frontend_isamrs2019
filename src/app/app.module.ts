@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { VehicleSEDComponent } from './vehicle-sed/vehicle-sed.component';
@@ -25,10 +25,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { ShowAirlinesComponent } from './show-airlines/show-airlines.component';
 import { ShowRentacarsComponent } from './show-rentacars/show-rentacars.component';
+import { HttpErrorInterceptor } from './interceptors/http-error-interceptor';
+import { JwtInterceptor } from './interceptors/jwt-interceptor';
+import { HotelAdminPageComponent } from './pages/hotel-admin-page/hotel-admin-page.component';
+import { ShowRoomsComponent } from './show-rooms/show-rooms.component';
+import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.component';
+import { AddRoomComponent } from './add-room/add-room.component';
 
-
-//import { NgbdTimepickerBasic } from './timepicker-basic';
-//import { OwlDateTimeModule, OwlNativeDateTimeModule } from 'ng-pick-datetime';
 
 
 
@@ -50,6 +53,10 @@ import { ShowRentacarsComponent } from './show-rentacars/show-rentacars.componen
     ProfileComponent,
     ShowAirlinesComponent,
     ShowRentacarsComponent,
+    HotelAdminPageComponent,
+    ShowRoomsComponent,
+    SysAdminPageComponent,
+    AddRoomComponent,
   ],
   imports: [
     BrowserModule,
@@ -66,9 +73,10 @@ import { ShowRentacarsComponent } from './show-rentacars/show-rentacars.componen
 
   ],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true },
     GenericService,
     { provide: 'BASE_API_URL', useValue: 'http://localhost:8080/api' }
-
   ],
   bootstrap: [AppComponent]
 })

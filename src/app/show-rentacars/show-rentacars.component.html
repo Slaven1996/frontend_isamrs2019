@@ -1,6 +1,5 @@
 <h4 *ngIf="!rentacars || rentacars.length===0">&nbsp;&nbsp;There are currently no rentacars.</h4>
 <div class="table-responsive" *ngIf="rentacars && rentacars.length > 0">
-  <h1> Rent-a-cars </h1>
   <br>
     <div *ngFor="let rentacar of rentacars" >
         <div class="card" >

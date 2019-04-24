@@ -1,6 +1,5 @@
 <h4 *ngIf="!hotels || hotels.length===0">&nbsp;&nbsp;There are currently no hotels.</h4>
 <div class="table-responsive" *ngIf="hotels && hotels.length > 0">
-  <h1> HOTELS </h1>
   <br>
     <div *ngFor="let hotel of hotels" >
         <div class="card" >

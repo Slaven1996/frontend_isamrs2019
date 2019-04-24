@@ -23,9 +23,10 @@ constructor() {}
               // client-side error
             } else {
               // server-side error
-              if(error.error.message){
+              if(error.error){
 
-                errorMessage=error.error.message;
+                errorMessage=error.error;
+               //errorMessage=error.message;
 
               } else {
                 errorMessage=`Something went wrong. :(`;
@@ -33,7 +34,10 @@ constructor() {}
               }
 
             }
-            console.log(`${error.error.message}`);
+           
+           console.log(errorMessage);
+
+           //console.log(errorMessage);
             return throwError(errorMessage);
           })
         )

@@ -1,6 +1,5 @@
 <h4 *ngIf="!airlines || airlines.length===0">&nbsp;&nbsp;There are currently no airlines.</h4>
 <div class="table-responsive" *ngIf="airlines && airlines.length > 0">
-  <h1> Airlines </h1>
   <br>
     <div *ngFor="let airline of airlines" >
         <div class="card" >
