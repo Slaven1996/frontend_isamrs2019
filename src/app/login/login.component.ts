@@ -20,7 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   onClick(){
-
     this.loginService.login(this.loginDTO);
     this.loginService.currentUser.subscribe(
       (result)=> 
@@ -44,7 +43,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/add-admin']);
     }
     else if (role === 'RENTACAR_ADMIN') {
-      this.router.navigate(['/checkticket']);
+      this.router.navigate(['/vehiclesSED']);
     }
     else if (role === 'HOTEL_ADMIN') {
       this.router.navigate(['/hotel']);

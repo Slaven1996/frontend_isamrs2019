@@ -54,6 +54,8 @@ export class LoginService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
+    alert("You have succesfully logged out!")
+    this.router.navigate(["/homepage"]);
   }
 
 }

@@ -25,7 +25,7 @@ export class AddVehicleComponent implements OnInit {
   }
 
   ngOnInit() {
-     if(this.router.url != "add-vehicle"){
+     if(this.router.url != "/add-vehicle"){
       this.getEditVehicle();
      }
   }
@@ -34,9 +34,10 @@ export class AddVehicleComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.vehicleService.getVehicle(id).subscribe(vehicle => this.vehicle = vehicle);
   }
+
   addVehicle() {
     if (this.vehicle.model !== '') {
-      if(this.router.url != "add-vehicle"){
+      if(this.router.url != "/add-vehicle"){
         this.vehicleService.editVehicle(this.vehicle);
       }
       else{
