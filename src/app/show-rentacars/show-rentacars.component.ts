@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RentacarForBackend } from '../model/rentacar-backend';
 import { GenericService } from '../service/generic.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-show-rentacars',
@@ -17,7 +18,7 @@ export class ShowRentacarsComponent implements OnInit {
   
 
 
-  constructor(private genericService: GenericService, private toastr: ToastrService){
+  constructor(private genericService: GenericService, private toastr: ToastrService, private router: Router){
       this.relativeUrlForRentacars = '/sys_admin/get_rentacars';
       this.relativeUrlForBranchOffices = '/';
 
@@ -48,7 +49,7 @@ export class ShowRentacarsComponent implements OnInit {
   }
 
   showBranchOffices() {
-
+    this.router.navigate(["/branch-offices"]);
   }
 
 }
