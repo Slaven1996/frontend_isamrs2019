@@ -10,13 +10,15 @@ import { Location } from '@angular/common';
 })
 export class HomePageComponent implements OnInit {
 
-  private user: string;
+  private currentUserEmail: string;
 
   constructor(private router: Router, private loginService : LoginService, private location: Location) { }
 
   ngOnInit() {
     if(localStorage.getItem('currentUser')!= null){
-      this.user = localStorage.getItem('currentUser').substring(81,100);}  //POPRAVITI OVO POSTO JE ZA SADA HARDCODOVANO!!!
+      const currentUser: any = this.loginService.currentUserValue;
+
+      this.currentUserEmail = currentUser.email} 
   }
 
   login(){
