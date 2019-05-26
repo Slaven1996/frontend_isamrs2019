@@ -3,6 +3,8 @@ import { RentacarForBackend } from '../model/rentacar-backend';
 import { GenericService } from '../service/generic.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router} from '@angular/router';
+import { LoginService } from '../services/login.service';
+import { User } from '../model/user';
 
 @Component({
   selector: 'app-show-rentacars',
@@ -14,17 +16,35 @@ export class ShowRentacarsComponent implements OnInit {
   rentacars: RentacarForBackend[];
   relativeUrlForRentacars: string;
   relativeUrlForBranchOffices: string;
-
+  relativeUrlForRentacarAdmin: string;
+  rentaCarAdmin : RentacarForBackend;
   
 
 
-  constructor(private genericService: GenericService, private toastr: ToastrService, private router: Router){
+  constructor(
+    private genericService: GenericService, 
+    private toastr: ToastrService, 
+    private router: Router,
+    private loginService : LoginService){
       this.relativeUrlForRentacars = '/sys_admin/get_rentacars';
+      this.relativeUrlForRentacarAdmin = '/rentacar/admin';
       this.relativeUrlForBranchOffices = '/';
 
   }
   ngOnInit() {
-    this.getRentacars();
+    const currentUser: User = this.loginService.currentUserValue;
+    if(currentUser && currentUser.userType == "RENTACAR_ADMIN"){
+      this.genericService.get(this.relativeUrlForRentacarAdmin).subscribe(
+        (rentaDTO : RentacarForBackend) => 
+        {
+          this.rentaCarAdmin = rentaDTO;
+        }
+        );
+      
+    } else {
+      this.getRentacars();
+    }
+    
   }
 
   getRentacars() {

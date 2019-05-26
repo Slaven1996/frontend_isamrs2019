@@ -4,5 +4,6 @@ export interface RentacarForBackend {
     street: string;
     city: string;
     state: string;
+    id: number;
 }
 
