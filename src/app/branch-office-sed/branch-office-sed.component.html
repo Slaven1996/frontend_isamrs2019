@@ -29,19 +29,19 @@
     </thead>
     <tbody>
   
-      <tr *ngFor="let vehicle of vehicles; let i = index">
+      <tr *ngFor="let branchoffice of branchOffices; let i = index">
         <td>
-          {{vehicle.id}}.
+          {{branchoffice.id}}.
         </td>
         <td>
-          {{vehicle.model}}
+          {{branchoffice.officeName}}
         </td>
         <td>
-          {{vehicle.numOfSeats}}
+          {{branchoffice.location}}
         </td>
         <td>
-          <button (click)='deleteVsehicle(vehicle.id)' type="button" class="btn btn-danger">Delete</button>
-          <button type="button" (click)='editVehicle(vehicle.id)' class="btn btn-warning">Edit</button>
+          <button (click)='deleteBranchOffice(branchoffice.id)' type="button" class="btn btn-danger">Delete</button>
+          <button type="button" (click)='editBranchOffice(branchoffice.id)' class="btn btn-warning">Edit</button>
       </td>
       </tr>
   

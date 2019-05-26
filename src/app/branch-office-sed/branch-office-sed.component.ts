@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { BranchOffice } from '../model/branchOffice';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BranchOfficeService } from '../services/branch-office.service';
+;
 
 @Component({
   selector: 'app-branch-office-sed',
@@ -8,9 +12,18 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class BranchOfficeSedComponent implements OnInit {
 
-  constructor(private router: Router) { }
+public branchOffices: BranchOffice[];
+
+  constructor(
+  private http: HttpClient, 
+  private router: Router,
+  private branchOfficeService: BranchOfficeService,
+    
+  ) { }
 
   ngOnInit() {
+    this.branchOffices = [];
+    this.getOffices();
   }
 
 
@@ -22,8 +35,13 @@ export class BranchOfficeSedComponent implements OnInit {
     alert("TO-DO")
   }
 
+  deleteBranchOffice(id){
+    this.branchOfficeService.deleteOffice(id);
+  }
+
   getOffices(){
-    alert("TO-DO");
+    this.branchOfficeService.branchOfficeObservable.subscribe( branchOffices => this.branchOffices = branchOffices);
+    this.branchOfficeService.findAll();
   }
 
 
