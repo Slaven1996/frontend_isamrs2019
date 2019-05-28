@@ -6,9 +6,9 @@
                   <a class="nav-item nav-link active" id="nav-show-hotels-tab" data-toggle="tab" href="#nav-show-hotels" role="tab" aria-controls="nav-show-hotels" aria-selected="true">Hotels</a>
                   <a class="nav-item nav-link" id="nav-show-airlines-tab" data-toggle="tab" href="#nav-show-airlines" role="tab" aria-controls="nav-show-airlines" aria-selected="false">Airlines</a>
                   <a class="nav-item nav-link" id="nav-show-rent-a-cars-tab" data-toggle="tab" href="#nav-show-rent-a-cars" role="tab" aria-controls="nav-show-rent-a-cars" aria-selected="false">Rent-a-cars</a>
-                  <button (click)="login()"  class="btn btn-primary">Log in</button> 
-                  <button (click)="register()"  class="btn btn-primary">Registration</button> 
-                  <button (click)="logout()"  class="btn btn-primary">Logout {{currentUserEmail}}</button> 
+                  <button *ngIf="!currentUserEmail" (click)="login()"  class="btn btn-primary">Log in</button> 
+                  <button *ngIf="!currentUserEmail" (click)="register()"  class="btn btn-primary">Registration</button> 
+                  <button *ngIf="currentUserEmail" (click)="logout()"  class="btn btn-primary">Logout {{currentUserEmail}}</button> 
               </div>
           </nav>
           <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
