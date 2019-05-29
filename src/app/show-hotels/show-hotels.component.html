@@ -1,4 +1,11 @@
-<h4 *ngIf="!hotels || hotels.length===0">&nbsp;&nbsp;There are currently no hotels.</h4>
+<div id = "searchDiv">
+  <input type="text" id="search" name="search" class="form-control" placeholder="Search&hellip;" [(ngModel)]="this.searchParam">
+  <button (click)='searchHotels
+  
+  ()' class="btn btn-warning">Search </button>
+</div>
+<div>  <h4 *ngIf="!hotels || hotels.length===0">&nbsp;&nbsp;There are currently no hotels.</h4>
+</div>
 <div class="table-responsive" *ngIf="hotels && hotels.length > 0">
   <br>
     <div *ngFor="let hotel of hotels" >
@@ -21,7 +28,7 @@
                 <p class="card-text">
                     Street: &nbsp;&nbsp; {{hotel.street}}
                 </p>
-                <button id="show_rooms" class="btn btn-primary" (click)="show_rooms(hotel.name)"> Show rooms</button>
+                <button id="show_rooms" class="btn btn-primary" (click)="showRooms(hotel.name)"> Show rooms</button>
                 <br>
       </div>
   </div>

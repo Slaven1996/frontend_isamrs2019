@@ -2,3 +2,7 @@ div {
     padding-left: 4px;
     width:700px;
 }
+#searchDiv{
+    float: right;
+    width: 8cm;
+}

@@ -27,8 +27,10 @@ export class GenericService {
     // const params: HttpParams = new HttpParams().set('_id',id);
     return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${id}`);
   }
-
-
+  getListByName<T>(relativeUrl: string, name: string): Observable<T[]> {
+    // const params: HttpParams = new HttpParams().set('_id',id);
+    return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${name}`);
+  }
 
   put<T>(relativeUrl: string, t: T): Observable<T> {
     const headers: HttpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
@@ -48,8 +50,8 @@ export class GenericService {
   delete(relativeUrl: string, id: number) {
     return this.http.delete(this.baseUrl + relativeUrl + `/${id}` + '/delete');
   }
-
-
-
+  search<T>(relativeUrl: string, name: string): Observable<T[]> {
+    return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${name}`);
+  }
 
 }

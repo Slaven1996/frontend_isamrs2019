@@ -16,6 +16,7 @@ import { ShowRentacarsComponent} from './show-rentacars/show-rentacars.component
 import { ShowAirlinesComponent} from './show-airlines/show-airlines.component';
 import { HotelAdminPageComponent } from './pages/hotel-admin-page/hotel-admin-page.component';
 import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.component';
+import { ShowRoomsComponent } from './show-rooms/show-rooms.component';
 
 
 
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'add-rentacar', component: AddRentacarComponent},
   { path: 'show-hotels' , component: ShowHotelsComponent},
   { path: 'add-admin'  , component: AddAdminComponent},
+  { path: 'show-rooms/:hotelName'  , component: ShowRoomsComponent},
   { path: '', // localhost:4200 redirect to localhost:4200/home-page
     redirectTo: '/homepage',
     pathMatch: 'full'
@@ -40,12 +42,6 @@ const routes: Routes = [
   { path: 'homepage', component: HomePageComponent},
   { path: 'hotel-admin', component: HotelAdminPageComponent},
   { path: 'sys_admin', component: SysAdminPageComponent}
-
-
-
-
-
-
 
 ];
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HotelForBackend } from '../model/hotel-backend';
 import { GenericService } from '../service/generic.service';
 import { ToastrService } from 'ngx-toastr';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-show-hotels',
@@ -13,13 +14,17 @@ export class ShowHotelsComponent implements OnInit {
   hotels: HotelForBackend[];
   relativeUrlForHotels: string;
   relativeUrlForRooms: string;
+  relativeURLSearch: string;
+  searchParam: string;
 
   
 
 
-  constructor(private genericService: GenericService, private toastr: ToastrService){
+  constructor(private genericService: GenericService, private toastr: ToastrService, private router: Router){
       this.relativeUrlForHotels = '/sys_admin/get_hotels';
       this.relativeUrlForRooms = '/sys_admin/get_rooms';
+      this.relativeURLSearch = '/sys_admin/search_by_name';
+      this.hotels = [];
 
   }
   ngOnInit() {
@@ -47,8 +52,28 @@ export class ShowHotelsComponent implements OnInit {
 
   }
 
-  showRooms() {
+  searchHotels(){
+    if (this.searchParam!=='' && this.searchParam !== undefined){
+      return this.genericService.search(this.relativeURLSearch, this.searchParam).subscribe(
+      (list: HotelForBackend[])=>{
+        this.hotels = list;
+        if (this.hotels) {
+          if (!(this.hotels.length > 0)){              
+            this.toastr.warning('No hotel matches given parameters!');
+            error => console.log('Error: ' + JSON.stringify(error))
+        }
+      }
+    }
+    );
+  }
+  else {
+    this.toastr.warning('No search parameters!');
 
+  }
+  }
+
+  showRooms(hotelName: string) {
+    this.router.navigate([`/show-rooms/`+ hotelName]);
   }
 
 }
