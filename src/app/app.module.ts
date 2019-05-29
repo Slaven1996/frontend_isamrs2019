@@ -31,6 +31,8 @@ import { HotelAdminPageComponent } from './pages/hotel-admin-page/hotel-admin-pa
 import { ShowRoomsComponent } from './show-rooms/show-rooms.component';
 import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.component';
 import { AddRoomComponent } from './add-room/add-room.component';
+import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.component';
+import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
 
 
 
@@ -57,6 +59,8 @@ import { AddRoomComponent } from './add-room/add-room.component';
     ShowRoomsComponent,
     SysAdminPageComponent,
     AddRoomComponent,
+    BranchOfficeSedComponent,
+    AddBranchOfficeComponent,
   ],
   imports: [
     BrowserModule,

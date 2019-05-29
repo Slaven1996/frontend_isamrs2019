@@ -1,0 +1,29 @@
+<body>
+  <div id="login">
+      <div class="container">
+          <div id="login-row" class="row justify-content-center align-items-center">
+              <div id="login-column" class="col-md-6">
+                  <div id="login-box" class="col-md-12">
+                      <form class="form" action="" method="post">
+                          <h3 class="text-center text-info">New Office</h3>
+                          <div class="form-group">
+                              <label for="model" class="text-info">Office name:</label><br>
+                              <input type="text"  id="model" name="model" class="form-control" [ngClass]="{'is-invalid' : submitted && f.model.errors}" [(ngModel)]="this.vehicle.model" />
+                          </div>
+                          <div class="form-group">
+                              <label for="gearBox" class="text-info">Location:</label><br>
+                              <input type="text" name="gearBox" class="form-control"  [(ngModel)]="this.vehicle.gearBox">
+                          </div>
+                          <div class="form-group">
+                              <button (click)="saveOffice()"  class="btn btn-primary">Save office</button> 
+                          </div>                            
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</body>
+
+
+

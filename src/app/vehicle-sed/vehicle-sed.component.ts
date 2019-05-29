@@ -39,13 +39,14 @@ export class VehicleSEDComponent implements OnInit {
     this.router.navigate(["/add-vehicle"]);
   }
 
-  searchVehicles(){
-    this.vehicles = [];
-    return this.http.get("http://localhost:8080/api/vehicle/searchVehicles/" + this.searchParam).subscribe(
-      (list: Vehicle[])=>{
-        this.vehicles = list;
-      }
-    );
+  searchVehicleModel(searchParam){
+    this.vehicleService.vehiclesObservable.subscribe( vehicles => this.vehicles = vehicles);
+    this.vehicleService.searchVehiclesModel(searchParam);
+  }
+
+  searchVehicleGearBox(searchParam){
+    this.vehicleService.vehiclesObservable.subscribe( vehicles => this.vehicles = vehicles);
+    this.vehicleService.searchVehiclesGearBox(searchParam);
   }
 
   deleteVehicle(id){

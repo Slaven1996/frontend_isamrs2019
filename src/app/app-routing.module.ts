@@ -17,6 +17,8 @@ import { ShowAirlinesComponent} from './show-airlines/show-airlines.component';
 import { HotelAdminPageComponent } from './pages/hotel-admin-page/hotel-admin-page.component';
 import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.component';
 import { ShowRoomsComponent } from './show-rooms/show-rooms.component';
+import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.component';
+import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
 
 
 
@@ -41,7 +43,9 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent},
   { path: 'homepage', component: HomePageComponent},
   { path: 'hotel-admin', component: HotelAdminPageComponent},
-  { path: 'sys_admin', component: SysAdminPageComponent}
+  { path: 'sys_admin', component: SysAdminPageComponent},
+  { path: 'branch-offices', component: BranchOfficeSedComponent},
+  { path: 'add-branch-office', component: AddBranchOfficeComponent}
 
 ];
 

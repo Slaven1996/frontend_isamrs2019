@@ -15,7 +15,7 @@ export class AddRentacarComponent implements OnInit {
   relativeUrl: string;
 
   constructor(private genericService: GenericService, private toastr: ToastrService) {
-      this.rentacar = {name: '', description: '',  street: '', city: '', state: ''};
+      this.rentacar = {id: undefined, name: '', description: '',  street: '', city: '', state: ''};
       this.relativeUrl = '/sys_admin/add_rentacar';
 
     }

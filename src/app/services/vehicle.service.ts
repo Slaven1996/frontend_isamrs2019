@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Vehicle } from '../model/vehicle';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
@@ -19,13 +19,30 @@ export class VehicleService {
     this.http.post<Vehicle>(this.vehicleUrl, vehicle)
     .subscribe(
       addedVehicle =>{
-        console.log(addedVehicle);
         this.vehicles.push(addedVehicle);
         this.vehiclesSource.next(this.vehicles);
         alert("Successfully added vehicle. New " + vehicle.model + " vehicle added.");
       }
     )
   }
+
+  searchVehiclesModel(searchParam){
+    this.http.get<Vehicle[]>("http://localhost:8080/api/vehicle/getVehicleByModel/" + searchParam)
+    .subscribe(vehicles => {
+      this.vehicles = vehicles;
+      this.vehiclesSource.next(this.vehicles);
+    });
+  }
+
+  searchVehiclesGearBox(searchParam){
+    this.http.get<Vehicle[]>("http://localhost:8080/api/vehicle/getVehicleByGearBox/" + searchParam)
+    .subscribe(vehicles => {
+      this.vehicles = vehicles;
+      this.vehiclesSource.next(this.vehicles);
+    });
+  }
+
+  
 
   getVehicle(id){
    return this.http.get<Vehicle>(this.vehicleUrl + "/" + id)
@@ -77,5 +94,7 @@ export class VehicleService {
       this.vehiclesSource.next(this.vehicles);
     });
   }
+
+
   
 }
