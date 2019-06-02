@@ -72,4 +72,8 @@ export class ShowRentacarsComponent implements OnInit {
     this.router.navigate(["/branch-offices"]);
   }
 
+  showVehicles(){
+    this.router.navigate(["/vehiclesSED"])
+  }
+
 }

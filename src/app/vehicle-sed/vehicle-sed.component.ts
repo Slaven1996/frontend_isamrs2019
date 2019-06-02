@@ -34,8 +34,7 @@ export class VehicleSEDComponent implements OnInit {
     
   }
 
-  addVehicle(){
-    
+  addVehicle(){    
     this.router.navigate(["/add-vehicle"]);
   }
 

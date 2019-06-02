@@ -28,8 +28,7 @@
       <th>Number of seats</th>
       <th>GearBox</th>
       <th>Year</th>
-      <th>Available</th>
-      <th>Rating</th>
+      <th>Office ID</th>
       <th>Price per day</th>
       <th style="width: 15%">Action</th>
     </tr>
@@ -53,13 +52,10 @@
         {{vehicle.godinaProizvodnje}}
         </td>
       <td>
-        {{vehicle.available}}
+        {{vehicle.idOffice}}
       </td>
       <td>
-        {{vehicle.rating}}
-      </td>
-      <td>
-          {{vehicle.pricePerDay}}
+        {{vehicle.pricePerDay}}
       </td>
       <td>
         <button (click)='deleteVehicle(vehicle.id)' type="button" class="btn btn-danger">Delete</button>

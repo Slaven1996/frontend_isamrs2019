@@ -43,7 +43,9 @@ const routes: Routes = [
   { path: 'hotel-admin', component: HotelAdminPageComponent},
   { path: 'sys_admin', component: SysAdminPageComponent},
   { path: 'branch-offices', component: BranchOfficeSedComponent},
-  { path: 'add-branch-office', component: AddBranchOfficeComponent}
+  { path: 'add-branch-office', component: AddBranchOfficeComponent},
+  { path: 'edit-branch-office/:id', component: AddBranchOfficeComponent},
+
 
 
 

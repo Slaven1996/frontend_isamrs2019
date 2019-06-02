@@ -31,6 +31,10 @@ public branchOffices: BranchOffice[];
     this.router.navigate(["/add-branch-office"]);
   }
 
+  editBranchOffice(id){
+    this.router.navigate(["/edit-branch-office/"+id]);
+  }
+
   searchOffice(searchParam){
     alert("TO-DO")
   }

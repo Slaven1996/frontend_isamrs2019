@@ -4,4 +4,6 @@ export interface Vehicle {
 	numOfSeats: number;
 	available: boolean;
 	rating: number;
+	branchOfficeID: string;
+	rentaCarID: string;
 }
