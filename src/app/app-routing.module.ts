@@ -18,6 +18,7 @@ import { HotelAdminPageComponent } from './pages/hotel-admin-page/hotel-admin-pa
 import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.component';
 import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.component';
 import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
+import { RentaCarReservationComponent } from './renta-car-reservation/renta-car-reservation.component';
 
 
 
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'add-vehicle', component: AddVehicleComponent},
   { path: 'edit-vehicle/:id', component: AddVehicleComponent},
   { path: 'vehiclesSED', component: VehicleSEDComponent},
+  { path: 'vehiclesSED/:dateFrom/:dateUntil/:numberOfSeats/:id', component: VehicleSEDComponent},
   { path: 'add-flight', component: AddFlightComponent},
   { path: 'add-hotel', component: AddHotelComponent},
   { path: 'add-airline', component: AddAirlineComponent},
@@ -45,6 +47,7 @@ const routes: Routes = [
   { path: 'branch-offices', component: BranchOfficeSedComponent},
   { path: 'add-branch-office', component: AddBranchOfficeComponent},
   { path: 'edit-branch-office/:id', component: AddBranchOfficeComponent},
+  { path: 'renta-car-reservation/:id', component: RentaCarReservationComponent}
 
 
 

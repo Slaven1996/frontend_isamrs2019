@@ -8,10 +8,19 @@ import { tap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class VehicleService {
+ 
   private vehicleUrl = "http://localhost:8080/api/vehicle";
   private vehiclesSource = new BehaviorSubject<Vehicle[]>([]);
   vehiclesObservable = this.vehiclesSource.asObservable();
   private vehicles = [];
+
+  //Da li mora ovako?
+  public rentaCarID: number;
+  public dateFrom: string;
+  public dateUntil: string;
+  public numberOfSeats: string;
+
+
 
   constructor(private http: HttpClient) { }
 
@@ -36,6 +45,14 @@ export class VehicleService {
 
   searchVehiclesGearBox(searchParam){
     this.http.get<Vehicle[]>("http://localhost:8080/api/vehicle/getVehicleByGearBox/" + searchParam)
+    .subscribe(vehicles => {
+      this.vehicles = vehicles;
+      this.vehiclesSource.next(this.vehicles);
+    });
+  }
+
+  findVehiclesByRentaCarId(dateFrom, dateUntil,numberOfSeats, rentaCarID) {
+    this.http.get<Vehicle[]>("http://localhost:8080/api/reservationRentaCar/getVehicleByRentaCarId" + "/" + dateFrom + "/" + dateUntil + "/" + numberOfSeats + "/" + rentaCarID)
     .subscribe(vehicles => {
       this.vehicles = vehicles;
       this.vehiclesSource.next(this.vehicles);

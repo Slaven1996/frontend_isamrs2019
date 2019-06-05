@@ -18,7 +18,7 @@
               <p class="card-text">
                   Street: &nbsp;&nbsp; {{rentacar.street}}
               </p>
-              <button id="show_branch_offices" class="btn btn-primary" *ngIf="rentaCarAdmin" (click)="showBranchOffices(rentacar.name)"> Show branch offices</button>
+              <button id="show_vehicles" class="btn btn-primary" (click)="vehicleReservation(rentacar.id)"> Vehicle reservation</button>
               <br>
       </div>
   </div>
@@ -43,6 +43,7 @@
               </p>
               <button id="show_branch_offices" class="btn btn-primary" (click)="showBranchOffices(rentaCarAdmin.name)"> Show branch offices</button>              
               <button id="show_vehicles" class="btn btn-primary" (click)="showVehicles(rentaCarAdmin.name)"> Show vehicles</button>
+              
               <br>
       </div>
 </div>

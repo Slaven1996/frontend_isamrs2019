@@ -33,6 +33,7 @@ import { SysAdminPageComponent } from './pages/sys-admin-page/sys-admin-page.com
 import { AddRoomComponent } from './add-room/add-room.component';
 import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.component';
 import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
+import { RentaCarReservationComponent } from './renta-car-reservation/renta-car-reservation.component';
 
 
 
@@ -61,6 +62,7 @@ import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.
     AddRoomComponent,
     BranchOfficeSedComponent,
     AddBranchOfficeComponent,
+    RentaCarReservationComponent,
   ],
   imports: [
     BrowserModule,
