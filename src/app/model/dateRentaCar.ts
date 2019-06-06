@@ -6,5 +6,4 @@ export interface dateRentaCar {
     dateUntil: string;
     numberOfSeats: string;
     vehicleId:string;
-    userId: number;
 }

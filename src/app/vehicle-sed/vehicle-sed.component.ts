@@ -13,6 +13,7 @@ import { LoginService } from '../services/login.service';
 import { User } from '../model/user';
 import { RentaCarReservationComponent } from '../renta-car-reservation/renta-car-reservation.component';
 import { ReservationRentaCarService } from '../services/reservation-renta-car.service';
+import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
 
 @Component({
   selector: 'app-vehicle-sed',
@@ -32,7 +33,6 @@ export class VehicleSEDComponent implements OnInit {
 
   public rentaCarAdmin: User;  
 
-  public reservation: dateRentaCar;
 
   constructor(
     private http: HttpClient, 
@@ -40,10 +40,9 @@ export class VehicleSEDComponent implements OnInit {
     private vehicleService : VehicleService,
     private route: ActivatedRoute,
     private loginService : LoginService,
-    //private reservationService: ReservationRentaCarService
+    private reservationService: ReservationRentaCarService
     ) 
     {
-      this.reservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '', userId:undefined, vehicleId:''};
     }
 
   ngOnInit() {
@@ -62,16 +61,14 @@ export class VehicleSEDComponent implements OnInit {
     }    
   }
   
-  reserveVehicle(id){
-    alert("TO-DO")
-    /*
-    this.reservation.dateFrom = this.dateFrom.substring(1);
-    this.reservation.dateUntil = this.dateUntil;
-    this.reservation.vehicleId = id;
-    this.reservation.userId = this.loginService.currentUserValue.idUser;
-
-    this.reservationService.addReservation(this.reservation)
-    */
+  reserveVehicle(id : number){
+    let reservation : VehicleReservationDTO= { 
+      dateFrom: this.route.snapshot.paramMap.get('dateFrom'),
+      dateUntil: this.route.snapshot.paramMap.get('dateUntil'),
+      vehicleId: id
+    };
+    this.reservationService.addReservation(reservation);
+    
   } 
   addVehicle(){    
     this.router.navigate(["/add-vehicle"]);

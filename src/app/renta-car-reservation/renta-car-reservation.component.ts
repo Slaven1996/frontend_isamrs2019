@@ -22,7 +22,7 @@ export class RentaCarReservationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute, 
   ) { 
-    this.dateReservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '', userId:undefined, vehicleId:''};
+    this.dateReservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '', vehicleId:''};
   }
 
   ngOnInit() {
@@ -31,7 +31,7 @@ export class RentaCarReservationComponent implements OnInit {
 
   checkDate(){
     //this.vehicleSED.getVehiclesByDate(this.dateReservation.dateFrom, this.dateReservation.dateUntil, this.id);
-    this.router.navigate(["/vehiclesSED/:" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" +  this.id]);
+    this.router.navigate(["/vehiclesSED/" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" +  this.id]);
   }
 
 
