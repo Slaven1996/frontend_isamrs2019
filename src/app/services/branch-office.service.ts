@@ -15,6 +15,33 @@ export class BranchOfficeService {
 
   constructor(private http: HttpClient) {}
 
+  
+  addOffice(office){
+    this.http.post<BranchOffice>(this.officeUrl, office)
+    .subscribe(
+      addedOffice =>{
+        this.branchOffices.push(addedOffice);
+        this.branchOfficesource.next(this.branchOffices);
+        alert("Successfully added office. New " + office.officeName + " office added.");
+      }
+    )
+  }
+  
+  getOffice(id){
+    return this.http.get<BranchOffice>(this.officeUrl + "/" + id)
+     .pipe(tap(
+       office =>{
+         for (var i = 0; i < this.branchOffices.length; i++){
+           if (office.id === this.branchOffices[i].id){
+             this.branchOffices[i] = office;
+             this.branchOfficesource.next(this.branchOffices);
+             return office;
+           }
+         }
+       })
+     )
+   }
+
   findAll(){
     this.http.get<BranchOffice[]>(this.officeUrl + "/admin")
     .subscribe(branchOffices => {
