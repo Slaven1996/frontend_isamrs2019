@@ -20,6 +20,7 @@ import { ShowRoomsComponent } from './show-rooms/show-rooms.component';
 import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.component';
 import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
 import { RentaCarReservationComponent } from './renta-car-reservation/renta-car-reservation.component';
+import {ShowRoomsAdminComponent} from './show-rooms-admin/show-rooms-admin.component';
 
 
 
@@ -40,6 +41,7 @@ const routes: Routes = [
     redirectTo: '/homepage',
     pathMatch: 'full'
   },
+  {path: 'show-rooms-admin', component: ShowRoomsAdminComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},

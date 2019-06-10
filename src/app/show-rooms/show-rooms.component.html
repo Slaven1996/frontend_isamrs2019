@@ -1,7 +1,29 @@
 <h4 *ngIf="!rooms || rooms.length===0">&nbsp;&nbsp;There are currently no rooms.</h4>
 <div class="table-responsive" *ngIf="rooms && rooms.length > 0">
   <br>
-    <div *ngFor="let room of rooms" >
+  <div class="form-group">
+    <label for="id_dateg1">&nbsp;&nbsp;Start date</label>
+    <div class="input-group">
+      <input class="form-control" id = "id_dateg1" placeholder="yyyy-mm-dd"
+              name="dp" [(ngModel)]="date1" ngbDatepicker [minDate]='today' #d1="ngbDatepicker" (focus)="d1.open()">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="id_dateg2">&nbsp;&nbsp;End date</label>
+    <div class="input-group">
+      <input class="form-control" id = "id_dateg2" placeholder="yyyy-mm-dd"
+              name="dp" [(ngModel)]="date2" ngbDatepicker #d2="ngbDatepicker" (focus)="d2.open()">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+      </div>
+    </div>
+  </div>
+      
+      <div *ngFor="let room of rooms" >
         <div class="card" >
               <div class="card-header">
                   Room type: &nbsp;&nbsp; {{room.type}}

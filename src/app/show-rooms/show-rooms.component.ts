@@ -3,6 +3,7 @@ import { Room } from '../model/room';
 import { ToastrService } from 'ngx-toastr';
 import { GenericService } from '../service/generic.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { dateRentaCar } from '../model/dateRentaCar';
 
 @Component({
   selector: 'app-show-rooms',
@@ -14,11 +15,13 @@ export class ShowRoomsComponent implements OnInit {
   relativeUrlRooms: string;
   rooms: Room[];
   hotelName: string;
+  today: Date;
 
 
   constructor(private genericService : GenericService, private toastr: ToastrService, private router: Router,
      private route: ActivatedRoute){
        this.relativeUrlRooms = '/hotel_admin/get_rooms'
+       this.today=new Date();
   }
   ngOnInit() {
     this.getRooms();

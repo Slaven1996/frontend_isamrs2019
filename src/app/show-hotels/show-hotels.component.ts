@@ -17,6 +17,7 @@ export class ShowHotelsComponent implements OnInit {
   relativeURLSearch: string;
   searchParam: string;
 
+
   
 
 

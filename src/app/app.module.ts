@@ -34,6 +34,9 @@ import { AddRoomComponent } from './add-room/add-room.component';
 import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.component';
 import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
 import { RentaCarReservationComponent } from './renta-car-reservation/renta-car-reservation.component';
+import { ShowRoomsAdminComponent } from './show-rooms-admin/show-rooms-admin.component';
+import { UpdateAdminComponent } from './update-admin/update-admin.component';
+import { UpdateHotelComponent } from './update-hotel/update-hotel.component';
 
 
 
@@ -63,6 +66,10 @@ import { RentaCarReservationComponent } from './renta-car-reservation/renta-car-
     BranchOfficeSedComponent,
     AddBranchOfficeComponent,
     RentaCarReservationComponent,
+    ShowRoomsAdminComponent,
+    UpdateAdminComponent,
+    UpdateHotelComponent,
+    ShowRoomsAdminComponent
   ],
   imports: [
     BrowserModule,

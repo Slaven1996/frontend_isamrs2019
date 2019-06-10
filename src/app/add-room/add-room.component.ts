@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Room } from '../model/room';
 import { GenericService } from '../service/generic.service';
 import { ToastrService } from 'ngx-toastr';
@@ -13,6 +13,9 @@ export class AddRoomComponent implements OnInit {
   roomTypes: string[] = ['ROOM', 'APARTMENT', 'STUDIO', 'SUITE'];
   room: Room;
   relativeUrl: string;
+
+  @Output()
+  roomAdded = new EventEmitter();
 
 
     
@@ -36,12 +39,11 @@ export class AddRoomComponent implements OnInit {
     if (stopAdding) {
       return;
     }
-   
-
   
     this.genericService.save(this.relativeUrl, this.room).subscribe(
       (retValue: boolean) => {
         if (retValue) {
+          this.roomAdded.emit();
           this.toastr.success('You have successfully added a room!');
         }
         else {
