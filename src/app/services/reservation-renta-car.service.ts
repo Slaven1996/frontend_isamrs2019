@@ -24,11 +24,34 @@ addReservation(dateRentaCar : VehicleReservationDTO) {
       addedReservation =>{
         this.reservations.push(addedReservation);
         this.reservationSource.next(this.reservations);
-        alert("Successfully reserved vehicle. New " + dateRentaCar.dateFrom + "<->" +  dateRentaCar.dateUntil + " reservation added.");
+        alert("You have successfully reserved new vehicle. New reservation from " + dateRentaCar.dateFrom + "until" +  dateRentaCar.dateUntil + " saved!.");
         this.router.navigate(["/homepage"])
       }
     )
     
   }
+
+deleteReservation(id){
+  this.http.delete<dateRentaCar>(this.reservationUrl + "/" + id)
+    .subscribe(
+      response =>{
+        for (var i = 0; i < this.reservations.length; i++){
+          if (id === this.reservations[i].id){
+            this.reservations.splice(i, 1);
+            this.reservationSource.next(this.reservations);
+            return;
+          }
+        }
+      }
+    )
+  }
+
+getReservations(){
+  this.http.get<dateRentaCar[]>(this.reservationUrl + "/getReservationByUser")
+  .subscribe(vehicles => {
+    this.reservations = vehicles;
+    this.reservationSource.next(this.reservations);
+  });
+}  
   
 }

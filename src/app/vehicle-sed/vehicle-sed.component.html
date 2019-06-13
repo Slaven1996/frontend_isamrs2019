@@ -65,7 +65,7 @@
       <td>
         <button (click)='deleteVehicle(vehicle.id)' *ngIf="rentaCarAdmin" type="button" class="btn btn-danger">Delete</button>
         <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="rentaCarAdmin" class="btn btn-warning">Edit</button>
-        <button type="button" (click)='reserveVehicle(vehicle.id)' *ngIf="!rentaCarAdmin" class="btn btn-warning">Reserve</button>
+        <button type="button" (click)='reserveVehicle(vehicle.id)' *ngIf="registeredUser" class="btn btn-warning">Reserve</button>
     </td>
     </tr>
 

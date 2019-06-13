@@ -14,6 +14,7 @@ import { User } from '../model/user';
 import { RentaCarReservationComponent } from '../renta-car-reservation/renta-car-reservation.component';
 import { ReservationRentaCarService } from '../services/reservation-renta-car.service';
 import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
+import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-vehicle-sed',
@@ -32,6 +33,8 @@ export class VehicleSEDComponent implements OnInit {
   public numberOfSeats: string;
 
   public rentaCarAdmin: User;  
+  public registeredUser: User;
+
 
 
   constructor(
@@ -47,8 +50,14 @@ export class VehicleSEDComponent implements OnInit {
 
   ngOnInit() {
     const currentUser: User = this.loginService.currentUserValue;
-    if(currentUser.userType == "RENTACAR_ADMIN"){
+    if(currentUser == null){
+      alert("Mozete pregledati vozila ali se morate registrovati odnosno ulogovati kako bi rezervisali.")
+    }
+    else if(currentUser.userType == "RENTACAR_ADMIN"){
       this.rentaCarAdmin = currentUser;
+    }
+    else if(currentUser.userType == "REGISTERED_USER"){
+      this.registeredUser = currentUser;
     }
 
 

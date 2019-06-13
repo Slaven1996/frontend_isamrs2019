@@ -21,6 +21,20 @@ export class HomePageComponent implements OnInit {
       this.currentUserEmail = currentUser.email} 
   }
 
+  myRentaCarReservations(){
+    this.router.navigate(["/my-renta-car-reservations"]);
+  }
+
+  myHotelReservations(){
+    this.router.navigate(["/my-hotel-reservations"]);
+  }
+
+  
+
+  profileView(){
+    alert("To-DO")
+  }
+
   login(){
     this.router.navigate(["/login"]);
   }

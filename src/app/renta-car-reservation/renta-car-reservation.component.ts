@@ -30,8 +30,19 @@ export class RentaCarReservationComponent implements OnInit {
   }
 
   checkDate(){
+    let dateFrom: Date = new Date(this.dateReservation.dateFrom);
+    let dateUntil:  Date = new Date(this.dateReservation.dateUntil);
+    let currentDate: Date = new Date();
+    if(dateFrom < currentDate){
+      alert("Molimo unesite datum u buducnosti!")
+    }
+    else if(dateUntil < dateFrom){
+      alert("Datum vracanja vozila mora da buden posle datuma preuzimanja!")
+    }
+    else{      
+      this.router.navigate(["/vehiclesSED/" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" +  this.id]);
+    }
     //this.vehicleSED.getVehiclesByDate(this.dateReservation.dateFrom, this.dateReservation.dateUntil, this.id);
-    this.router.navigate(["/vehiclesSED/" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" +  this.id]);
   }
 
 
