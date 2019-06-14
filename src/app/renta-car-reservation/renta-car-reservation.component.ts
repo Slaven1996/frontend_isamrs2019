@@ -32,7 +32,8 @@ export class RentaCarReservationComponent implements OnInit {
   checkDate(){
     let dateFrom: Date = new Date(this.dateReservation.dateFrom);
     let dateUntil:  Date = new Date(this.dateReservation.dateUntil);
-    let currentDate: Date = new Date();
+    let currentDate: Date = new Date();  
+
     if(dateFrom < currentDate){
       alert("Molimo unesite datum u buducnosti!")
     }

@@ -27,8 +27,15 @@ export class MyRentaCarReservationsComponent implements OnInit {
   cancelReservation(id, dateFrom){
     let date: Date = new Date(dateFrom);
     let currentDate: Date = new Date();
+    let currentDateTemp: Date = new Date();
+
+    currentDateTemp.setDate(currentDateTemp.getDate() + 2);
+
     if(date < currentDate){
       alert("Ova rezervacija je prosla!")
+    }
+    else if(currentDateTemp >= date){
+      alert("Rok za otkazivanje je prosao. Rezervaciju morate otkazati najmanje 48h unapred.")
     }
     else{
       this.reservationService.deleteReservation(id);
