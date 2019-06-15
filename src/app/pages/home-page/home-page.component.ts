@@ -19,6 +19,7 @@ export class HomePageComponent implements OnInit {
       const currentUser: any = this.loginService.currentUserValue;
 
       this.currentUserEmail = currentUser.email} 
+      
   }
 
   myRentaCarReservations(){

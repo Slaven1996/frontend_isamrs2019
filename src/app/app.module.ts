@@ -39,6 +39,7 @@ import { UpdateAdminComponent } from './update-admin/update-admin.component';
 import { UpdateHotelComponent } from './update-hotel/update-hotel.component';
 import { MyRentaCarReservationsComponent } from './my-renta-car-reservations/my-renta-car-reservations.component';
 import { MyHotelReservationsComponent } from './my-hotel-reservations/my-hotel-reservations.component';
+import { RentaCarProfileComponent } from './renta-car-profile/renta-car-profile.component';
 
 
 
@@ -73,7 +74,8 @@ import { MyHotelReservationsComponent } from './my-hotel-reservations/my-hotel-r
     UpdateHotelComponent,
     ShowRoomsAdminComponent,
     MyRentaCarReservationsComponent,
-    MyHotelReservationsComponent
+    MyHotelReservationsComponent,
+    RentaCarProfileComponent
   ],
   imports: [
     BrowserModule,

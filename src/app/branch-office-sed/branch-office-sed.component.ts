@@ -46,6 +46,8 @@ public branchOffices: BranchOffice[];
   getOffices(){
     this.branchOfficeService.branchOfficeObservable.subscribe( branchOffices => this.branchOffices = branchOffices);
     this.branchOfficeService.findAll();
+    
+    
   }
 
 

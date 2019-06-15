@@ -48,6 +48,7 @@ export class BranchOfficeService {
       this.branchOffices = branchOffices;
       this.branchOfficesource.next(this.branchOffices);
     });
+    
   }
   
   deleteOffice(id){
