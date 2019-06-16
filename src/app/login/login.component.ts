@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/vehiclesSED']);
     }
     else if (role === 'HOTEL_ADMIN') {
-      this.router.navigate(['/hotel']);
+      this.router.navigate(['/hotel-admin']);
     }
     else if (role === 'AIRLINE_ADMIN') {
       this.router.navigate(['/hotel']);

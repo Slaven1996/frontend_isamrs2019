@@ -1,3 +1,23 @@
-<p>
-  update-admin works!
-</p>
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Edit User</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="username">Username:</label>
+      <input type="text" formControlName="username" placeholder="username" name="username" class="form-control" id="username" readonly="true">
+    </div>
+    <div class="form-group">
+      <label for="email">&nbsp;&nbsp;Email</label>
+      <input type="email"  formControlName="email" class="form-control" id="email" name="email"/>
+    </div>
+    <div class="form-group">
+      <label for="oldPassword">Old Password:</label>
+      <input type="password" formControlName="oldPassword" placeholder="Insert old password" name="oldPassword" class="form-control" id="oldPassword">
+    </div>
+    <div class="form-group">
+      <label for="newPassword">New Password:</label>
+      <input type="password" formControlName="newPassword" placeholder="Insert new password" name="newPassword" class="form-control" id="newPassword">
+    </div>
+
+    <input type="submit" class="btn btn-primary btn-lg" value="Update"/>
+  </form>
+</div>

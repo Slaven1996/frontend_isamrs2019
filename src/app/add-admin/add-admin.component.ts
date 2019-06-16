@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AdminBackend } from '../model/admin-backend';
 import { GenericService } from '../service/generic.service';
 import { ToastrService } from 'ngx-toastr';
-import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-add-admin',
