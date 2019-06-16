@@ -32,8 +32,11 @@ export class VehicleSEDComponent implements OnInit {
   public dateUntil: string;
   public numberOfSeats: string;
 
+
   public rentaCarAdmin: User;  
   public registeredUser: User;
+
+  public broj: number;
 
 
 
@@ -116,7 +119,13 @@ export class VehicleSEDComponent implements OnInit {
     
     this.vehicleService.vehiclesObservable.subscribe( vehicles => this.vehicles = vehicles);
     this.vehicleService.findVehiclesByRentaCarId(this.dateFrom, this.dateUntil,this.numberOfSeats, this.rentaCarID);
-    
+
+    var date1 = new Date (this.dateFrom);
+    var date2 = new Date (this.dateUntil);
+
+    var diff = Math.abs(date1.getTime() - date2.getTime());
+    this.broj = Math.ceil(diff / (1000 * 3600 * 24)); 
+  
   }
 
   
