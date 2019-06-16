@@ -14,6 +14,7 @@ import { User } from '../model/user';
 import { RentaCarReservationComponent } from '../renta-car-reservation/renta-car-reservation.component';
 import { ReservationRentaCarService } from '../services/reservation-renta-car.service';
 import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
+import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-vehicle-sed',
@@ -31,7 +32,12 @@ export class VehicleSEDComponent implements OnInit {
   public dateUntil: string;
   public numberOfSeats: string;
 
+
   public rentaCarAdmin: User;  
+  public registeredUser: User;
+
+  public broj: number;
+
 
 
   constructor(
@@ -47,8 +53,14 @@ export class VehicleSEDComponent implements OnInit {
 
   ngOnInit() {
     const currentUser: User = this.loginService.currentUserValue;
-    if(currentUser.userType == "RENTACAR_ADMIN"){
+    if(currentUser == null){
+      alert("Mozete pregledati vozila ali se morate registrovati odnosno ulogovati kako bi rezervisali.")
+    }
+    else if(currentUser.userType == "RENTACAR_ADMIN"){
       this.rentaCarAdmin = currentUser;
+    }
+    else if(currentUser.userType == "REGISTERED_USER"){
+      this.registeredUser = currentUser;
     }
 
 
@@ -107,7 +119,13 @@ export class VehicleSEDComponent implements OnInit {
     
     this.vehicleService.vehiclesObservable.subscribe( vehicles => this.vehicles = vehicles);
     this.vehicleService.findVehiclesByRentaCarId(this.dateFrom, this.dateUntil,this.numberOfSeats, this.rentaCarID);
-    
+
+    var date1 = new Date (this.dateFrom);
+    var date2 = new Date (this.dateUntil);
+
+    var diff = Math.abs(date1.getTime() - date2.getTime());
+    this.broj = Math.ceil(diff / (1000 * 3600 * 24)); 
+  
   }
 
   

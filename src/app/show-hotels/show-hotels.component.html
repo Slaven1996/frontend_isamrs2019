@@ -1,8 +1,6 @@
 <div id = "searchDiv">
   <input type="text" id="search" name="search" class="form-control" placeholder="Search&hellip;" [(ngModel)]="this.searchParam">
-  <button (click)='searchHotels
-  
-  ()' class="btn btn-warning">Search </button>
+  <button (click)='searchHotels()' class="btn btn-warning">Search </button>
 </div>
 <div>  <h4 *ngIf="!hotels || hotels.length===0">&nbsp;&nbsp;There are currently no hotels.</h4>
 </div>

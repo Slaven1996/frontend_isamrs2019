@@ -17,10 +17,10 @@ export class AddVehicleComponent implements OnInit {
 
   constructor(
     private vehicleService : VehicleService,
-     private toastr: ToastrService, 
-     private router: Router,
-     private route: ActivatedRoute
-     ) {
+    private toastr: ToastrService, 
+    private router: Router,
+    private route: ActivatedRoute
+    ) {
     this.vehicle = { model: '', numOfSeats: 0 };
   }
 

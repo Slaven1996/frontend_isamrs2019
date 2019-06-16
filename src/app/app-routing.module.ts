@@ -21,6 +21,9 @@ import { BranchOfficeSedComponent } from './branch-office-sed/branch-office-sed.
 import { AddBranchOfficeComponent } from './add-branch-office/add-branch-office.component';
 import { RentaCarReservationComponent } from './renta-car-reservation/renta-car-reservation.component';
 import {ShowRoomsAdminComponent} from './show-rooms-admin/show-rooms-admin.component';
+import { MyRentaCarReservationsComponent } from './my-renta-car-reservations/my-renta-car-reservations.component';
+import { MyHotelReservationsComponent } from './my-hotel-reservations/my-hotel-reservations.component';
+import { RentaCarProfileComponent } from './renta-car-profile/renta-car-profile.component';
 
 
 
@@ -51,7 +54,10 @@ const routes: Routes = [
   { path: 'branch-offices', component: BranchOfficeSedComponent},
   { path: 'add-branch-office', component: AddBranchOfficeComponent},
   { path: 'edit-branch-office/:id', component: AddBranchOfficeComponent},
-  { path: 'renta-car-reservation/:id', component: RentaCarReservationComponent}
+  { path: 'renta-car-reservation/:id', component: RentaCarReservationComponent},
+  { path: 'my-renta-car-reservations', component: MyRentaCarReservationsComponent},
+  { path: 'my-hotel-reservations', component: MyHotelReservationsComponent},
+  { path: 'edit-renta-car/:id', component: RentaCarProfileComponent}
 
 
 ];

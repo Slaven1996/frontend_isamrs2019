@@ -19,6 +19,10 @@ export class LoginComponent implements OnInit {
     this.loginDTO = new LoginDTO();
   }
 
+  register(){
+    this.router.navigate(['/registration'])
+  }
+
   onClick(){
     this.loginService.login(this.loginDTO);
     this.loginService.currentUser.subscribe(

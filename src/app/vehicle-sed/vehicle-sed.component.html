@@ -31,6 +31,7 @@
       <th>Year</th>
       <th>Office ID</th>
       <th>Price per day</th>
+      <th>Total Price </th>
       <th>Location</th>
       <th style="width: 15%">Action</th>
     </tr>
@@ -60,12 +61,15 @@
         {{vehicle.pricePerDay}}
       </td>
       <td>
+        {{broj * vehicle.pricePerDay}}
+      </td>
+      <td>
         {{vehicle.cityLocation}}
       </td>
       <td>
         <button (click)='deleteVehicle(vehicle.id)' *ngIf="rentaCarAdmin" type="button" class="btn btn-danger">Delete</button>
         <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="rentaCarAdmin" class="btn btn-warning">Edit</button>
-        <button type="button" (click)='reserveVehicle(vehicle.id)' *ngIf="!rentaCarAdmin" class="btn btn-warning">Reserve</button>
+        <button type="button" (click)='reserveVehicle(vehicle.id)' *ngIf="registeredUser" class="btn btn-warning">Reserve</button>
     </td>
     </tr>
 

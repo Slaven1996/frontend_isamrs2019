@@ -15,7 +15,7 @@ export class AddRentacarComponent implements OnInit {
   relativeUrl: string;
 
   constructor(private genericService: GenericService, private toastr: ToastrService) {
-      this.rentacar = {id: undefined, name: '', description: '',  street: '', city: '', state: ''};
+      this.rentacar = {id: undefined, name: '', description: '',  street: '', city: '', state: '', address: ''};
       this.relativeUrl = '/sys_admin/add_rentacar';
 
     }
@@ -31,6 +31,7 @@ export class AddRentacarComponent implements OnInit {
       this.toastr.error('Name is empty!');
       stopAdding = true;
     }
+    /*
     if (!this.rentacar.state || this.rentacar.state === '') {
       this.toastr.error('State is empty!');
       stopAdding = true;
@@ -44,7 +45,7 @@ export class AddRentacarComponent implements OnInit {
       this.toastr.error('City is empty!');
       stopAdding = true;
     }
-
+    */
     if (stopAdding) {
       return;
     }

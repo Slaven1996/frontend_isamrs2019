@@ -18,7 +18,7 @@ export class AddBranchOfficeComponent implements OnInit {
      private router: Router,
      private route: ActivatedRoute
      ) {
-    this.office = {id: '', officeName: '', location: ''};
+    this.office = {id: '', officeName: '', address: ''};
   }
 
   ngOnInit() {

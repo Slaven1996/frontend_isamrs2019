@@ -10,12 +10,6 @@
                   Description: &nbsp;&nbsp; {{rentacar.description}}
               </p>
               <p class="card-text">
-                  City: &nbsp;&nbsp; {{rentacar.city}}
-              </p>    
-              <p class="card-text">
-                  State: &nbsp;&nbsp; {{rentacar.state}}
-              </p>
-              <p class="card-text">
                   Street: &nbsp;&nbsp; {{rentacar.street}}
               </p>
               <button id="show_vehicles" class="btn btn-primary" (click)="vehicleReservation(rentacar.id)"> Vehicle reservation</button>
@@ -32,18 +26,13 @@
               <p class="card-text">
                   Description: &nbsp;&nbsp; {{rentaCarAdmin.description}}
               </p>
-              <p class="card-text">
-                  City: &nbsp;&nbsp; {{rentaCarAdmin.city}}
-              </p>    
-              <p class="card-text">
-                  State: &nbsp;&nbsp; {{rentaCarAdmin.state}}
-              </p>
+
               <p class="card-text">
                   Street: &nbsp;&nbsp; {{rentaCarAdmin.street}}
               </p>
               <button id="show_branch_offices" class="btn btn-primary" (click)="showBranchOffices(rentaCarAdmin.name)"> Show branch offices</button>              
               <button id="show_vehicles" class="btn btn-primary" (click)="showVehicles(rentaCarAdmin.name)"> Show vehicles</button>
-              
+              <button id="edit-rentaCar" class="btn btn-primary" (click)="editRentaCar(rentaCarAdmin.id)"> Edit Rent-a-car info</button>                      
               <br>
       </div>
 </div>
