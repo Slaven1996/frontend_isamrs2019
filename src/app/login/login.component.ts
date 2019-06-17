@@ -26,18 +26,20 @@ export class LoginComponent implements OnInit {
   onClick(){
     this.loginService.login(this.loginDTO);
     this.loginService.currentUser.subscribe(
+
       (result)=> 
     {
       if(result)
       { 
         const currentUser: any = this.loginService.currentUserValue;
-        this.toastr.success('Successfully logged in as ' + currentUser.username);
         this.goToPageOfLoggedUser(currentUser);
       }
       else {
         this.toastr.error('error logging');
       }
     });
+
+    
   }
 
   goToPageOfLoggedUser(currentUser: any) {

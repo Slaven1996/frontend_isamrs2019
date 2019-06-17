@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpBackend } from '@angular/common/http';
 import { Observable, of, BehaviorSubject} from 'rxjs';
 import { User } from '../model/user';
 import { map } from 'rxjs/operators';
@@ -13,8 +13,10 @@ export class LoginService {
   private userUrl = "http://localhost:8080/api/login";
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
+  private http: HttpClient;
 
-  constructor(private http: HttpClient, private router: Router) {
+  constructor(private handler: HttpBackend, private router: Router) {
+    this.http = new HttpClient(handler);
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
     this.currentUser = this.currentUserSubject.asObservable();
   }
@@ -47,7 +49,10 @@ export class LoginService {
                 this.currentUserSubject.next(user);
             }
             return userDTO;
-        })).subscribe();
+        })).subscribe(
+        (data)=>{},
+           error=>{alert("You have entered wrong username or password. Please try again!")} 
+        );
 
 }
   logout() {
