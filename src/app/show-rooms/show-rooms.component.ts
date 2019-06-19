@@ -26,7 +26,7 @@ export class ShowRoomsComponent implements OnInit {
   constructor(private genericService : GenericService, private toastr: ToastrService, private router: Router,
      private route: ActivatedRoute){
        this.relativeUrlRooms = '/hotel_admin/get_rooms';
-       this.relativeUrlQuery = '/registered_user/query';
+       this.relativeUrlQuery = '/room-reservation';
        this.today=new Date();
   }
   ngOnInit() {

@@ -3,7 +3,7 @@ export interface RoomQuery {
         hotelName: string;   
         dateFrom: string;
         dateUntil: string;
-        numberOfBeds: string;
+        numberOfBeds: number;
         roomId:string;
     
 }
