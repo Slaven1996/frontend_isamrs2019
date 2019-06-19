@@ -4,6 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { GenericService } from '../service/generic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddRoomComponent } from '../add-room/add-room.component';
+import { HotelForBackend } from '../model/hotel-backend';
 
 
 @Component({
@@ -15,6 +16,10 @@ export class ShowRoomsAdminComponent implements OnInit {
   @Input()
   rooms: Room[];
 
+  @Input()
+  hotel: HotelForBackend;
+
+  hotelName: string;
   closeResult: string;
   relativeUrlRooms: string;
   relativeUrlRoomDelete: string;
@@ -25,40 +30,20 @@ export class ShowRoomsAdminComponent implements OnInit {
 
 
 
-  constructor(private genericService : GenericService, private toastr: ToastrService, private router: Router,
+  constructor(private service : GenericService, private toastr: ToastrService, private router: Router,
      private route: ActivatedRoute){
        this.relativeUrlRoomDelete = '/hotel_admin';
        this.relativeUrlRooms= '/hotel_admin/get_rooms';
 
   }
   ngOnInit() {
-    this.getRooms();
   
   }
 
-  getRooms(){
-    this.genericService.getListByName(this.relativeUrlRooms, 'dash').subscribe(
-      (rooms: Room[]) => {
-        this.rooms = rooms;
-        if (this.rooms) {
-          if (this.rooms.length > 0) {  
-            this.toastr.success('Rooms are successfully loaded!');
-          }
-          else {
-            this.toastr.warning('There are no rooms at the moment!');
-          }
-        }
-        else {
-          this.toastr.error('Problem with loading of rooms!');
-        }
-    },
-    error => console.log('Error: ' + JSON.stringify(error))
-    );
-  }
   
 
   deleteRoom(id: number){
-    this.genericService.delete(this.relativeUrlRoomDelete, id).subscribe(
+    this.service.delete(this.relativeUrlRoomDelete, id).subscribe(
       (success: boolean) => {
         if (success) {
             this.roomDeleted.emit();

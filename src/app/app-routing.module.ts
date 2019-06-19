@@ -24,8 +24,7 @@ import {ShowRoomsAdminComponent} from './show-rooms-admin/show-rooms-admin.compo
 import { MyRentaCarReservationsComponent } from './my-renta-car-reservations/my-renta-car-reservations.component';
 import { MyHotelReservationsComponent } from './my-hotel-reservations/my-hotel-reservations.component';
 import { RentaCarProfileComponent } from './renta-car-profile/renta-car-profile.component';
-import { RentaCarReportComponent } from './renta-car-report/renta-car-report.component';
-import { RentaCarReservationSEDComponent } from './renta-car-reservation-sed/renta-car-reservation-sed.component';
+import { HotelRoomReservationComponent } from './hotel-room-reservation/hotel-room-reservation.component';
 
 
 
@@ -43,12 +42,12 @@ const routes: Routes = [
   { path: 'add-rentacar', component: AddRentacarComponent},
   { path: 'show-hotels' , component: ShowHotelsComponent},
   { path: 'add-admin'  , component: AddAdminComponent},
-  { path: 'show-rooms/:hotelName'  , component: ShowRoomsComponent},
+  { path: 'show-rooms/:hotelName/:dateFrom/:dateUntil/:numberOfBeds'  , component: ShowRoomsComponent},
   { path: '', // localhost:4200 redirect to localhost:4200/home-page
     redirectTo: '/homepage',
     pathMatch: 'full'
   },
-  {path: 'show-rooms-admin', component: ShowRoomsAdminComponent},
+  {path: 'hotel_admin/show-rooms-admin', component: ShowRoomsAdminComponent},
   { path: 'registration', component: RegistrationComponent},
   { path: 'login', component: LoginComponent},
   { path: 'profile', component: ProfileComponent},
@@ -62,8 +61,7 @@ const routes: Routes = [
   { path: 'my-renta-car-reservations', component: MyRentaCarReservationsComponent},
   { path: 'my-hotel-reservations', component: MyHotelReservationsComponent},
   { path: 'edit-renta-car/:id', component: RentaCarProfileComponent},
-  { path: 'renta-car-report/:id', component: RentaCarReportComponent},
-  { path: 'rentaCarReservationSED/:dateFrom/:dateUntil/:hotelId', component: RentaCarReservationSEDComponent}
+  { path: 'room-reservation/:hotelName', component: HotelRoomReservationComponent}
 
 
 ];

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HotelForBackend } from '../model/hotel-backend';
 import { GenericService } from '../service/generic.service';
 import { ToastrService } from 'ngx-toastr';
@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./add-hotel.component.css']
 })
 export class AddHotelComponent implements OnInit {
-
+  
   hotel: HotelForBackend;
 
   relativeUrl: string;
