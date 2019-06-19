@@ -15,6 +15,7 @@ export class VehicleService {
   private vehicles = [];
 
   //Da li mora ovako?
+  public hotelId: number;
   public rentaCarID: number;
   public dateFrom: string;
   public dateUntil: string;
@@ -51,8 +52,16 @@ export class VehicleService {
     });
   }
 
-  findVehiclesByRentaCarId(dateFrom, dateUntil,numberOfSeats, rentaCarID) {
-    this.http.get<Vehicle[]>("http://localhost:8080/api/reservationRentaCar/getVehicleByRentaCarId" + "/" + dateFrom + "/" + dateUntil + "/" + numberOfSeats + "/" + rentaCarID)
+  findVehiclesByRentaCarId(dateFrom, dateUntil,numberOfSeats,city, rentaCarID) {
+    this.http.get<Vehicle[]>("http://localhost:8080/api/reservationRentaCar/getVehicleByRentaCarId" + "/" + dateFrom + "/" + dateUntil + "/" + numberOfSeats + "/" + city + "/" + rentaCarID)
+    .subscribe(vehicles => {
+      this.vehicles = vehicles;
+      this.vehiclesSource.next(this.vehicles);
+    });
+  }
+
+  findVehiclesByHotelId(dateFrom, dateUntil, hotelId) {
+    this.http.get<Vehicle[]>("http://localhost:8080/api/reservationRentaCar/getVehicleByDateAndHotelId" + "/" + dateFrom + "/" + dateUntil + "/" +hotelId)
     .subscribe(vehicles => {
       this.vehicles = vehicles;
       this.vehiclesSource.next(this.vehicles);
