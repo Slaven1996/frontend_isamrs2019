@@ -52,6 +52,19 @@ getReservations(){
     this.reservations = vehicles;
     this.reservationSource.next(this.reservations);
   });
-}  
+}
+
+getReservationsReport(dateFrom, dateUntil, rentaCarId){
+  this.http.get<dateRentaCar[]>(this.reservationUrl + "/getReservationReport" + "/" + dateFrom + "/" + dateUntil + "/" + rentaCarId)
+  .subscribe(vehicles => {
+    this.reservations = vehicles;
+    this.reservationSource.next(this.reservations);
+  });
+}
+
+getReservationsIncome(dateFrom, dateUntil, rentaCarId){
+  this.http.get<Number>(this.reservationUrl + "/getReservationReportIncome" + "/" + dateFrom + "/" + dateUntil + "/" + rentaCarId)
+  .subscribe()};
+
   
 }
