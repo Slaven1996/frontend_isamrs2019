@@ -22,7 +22,7 @@ export class RentaCarReservationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute, 
   ) { 
-    this.dateReservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '', vehicleId:''};
+    this.dateReservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '', vehicleId:'', city:''};
   }
 
   ngOnInit() {
@@ -40,8 +40,11 @@ export class RentaCarReservationComponent implements OnInit {
     else if(dateUntil < dateFrom){
       alert("Datum vracanja vozila mora da buden posle datuma preuzimanja!")
     }
-    else{      
-      this.router.navigate(["/vehiclesSED/" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" +  this.id]);
+    else if(this.dateReservation.city === ''){      
+      this.router.navigate(["/vehiclesSED/" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" + this.id]);
+    }
+    else{
+      this.router.navigate(["/vehiclesSED/" + this.dateReservation.dateFrom +"/" + this.dateReservation.dateUntil +"/" + this.dateReservation.numberOfSeats + "/" + this.dateReservation.city + "/" +  this.id]);
     }
     //this.vehicleSED.getVehiclesByDate(this.dateReservation.dateFrom, this.dateReservation.dateUntil, this.id);
   }

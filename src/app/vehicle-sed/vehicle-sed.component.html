@@ -24,22 +24,22 @@
 <table  class="table table-bordered table-hover table-dark">
   <thead>
     <tr>
-      <th>ID</th>
+      <th *ngIf="rentaCarAdmin">ID</th>
       <th>Model</th>
       <th>Number of seats</th>
       <th>GearBox</th>
       <th>Year</th>
       <th>Office ID</th>
       <th>Price per day</th>
-      <th>Total Price </th>
-      <th>Location</th>
+      <th *ngIf="!rentaCarAdmin">  Total Price </th>
+      <th>Vehicle Location</th>
       <th style="width: 15%">Action</th>
     </tr>
   </thead>
   <tbody>
 
     <tr *ngFor="let vehicle of vehicles; let i = index">
-      <td>
+      <td *ngIf="rentaCarAdmin">
         {{vehicle.id}}.
       </td>
       <td>
@@ -60,7 +60,7 @@
       <td>
         {{vehicle.pricePerDay}}
       </td>
-      <td>
+      <td *ngIf="!rentaCarAdmin">
         {{broj * vehicle.pricePerDay}}
       </td>
       <td>
