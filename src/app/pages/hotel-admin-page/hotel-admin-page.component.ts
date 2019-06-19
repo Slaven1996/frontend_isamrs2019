@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { GenericService } from '../../service/generic.service';
 import { Room } from '../../model/room';
+import { ActivatedRoute } from '@angular/router';
+import { User } from '../../model/user';
+import { LoginService } from '../../services/login.service';
+import { HotelForBackend } from '../../model/hotel-backend';
 
 @Component({
   selector: 'app-hotel-admin-page',
@@ -12,19 +16,38 @@ export class HotelAdminPageComponent implements OnInit {
 
   relativeUrlRooms: string;
   rooms: Room[];
-  hotelName: string;
+  hotelAdmin: User;
   today: Date;
+  relativeUrlHotel: string;
+
+  @Output()
+  hotel:HotelForBackend;
 
 
-  constructor(private genericService : GenericService, private toastr: ToastrService){
-       this.relativeUrlRooms = '/hotel_admin/get_rooms'
+  constructor(private genericService : GenericService, private toastr: ToastrService, private route: ActivatedRoute, private loginService: LoginService){
+       this.relativeUrlRooms = '/hotel_admin/get_rooms';
+       this.relativeUrlHotel = '/hotel_admin/get-hotel';
        this.today=new Date();
   }
   ngOnInit() {
-    this.getRooms();
+    
+    this.getHotel();
+
   }
 
-  getRooms(){
+  getHotel() {
+    const currentUser: User = this.loginService.currentUserValue;
+    this.genericService.getByName(this.relativeUrlHotel, currentUser.username).subscribe(
+      (hotel:HotelForBackend) => {
+        this.hotel = hotel;
+        this.getRooms();
+      },
+      error => console.log('Error: ' + JSON.stringify(error))
+    );
+  }
+
+  getRooms() {
+
     this.genericService.getListByName(this.relativeUrlRooms, 'dash').subscribe(
       (rooms: Room[]) => {
         this.rooms = rooms;

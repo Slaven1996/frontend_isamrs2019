@@ -14,7 +14,7 @@ import { User } from '../model/user';
 import { RentaCarReservationComponent } from '../renta-car-reservation/renta-car-reservation.component';
 import { ReservationRentaCarService } from '../services/reservation-renta-car.service';
 import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
-import { disableBindings } from '@angular/core/src/render3';
+//import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-vehicle-sed',

@@ -77,4 +77,8 @@ export class ShowHotelsComponent implements OnInit {
     this.router.navigate([`/show-rooms/`+ hotelName]);
   }
 
+  reserveRoom(hotelName: string) {
+    this.router.navigate([`/room-reservation/`+ hotelName]);
+  }
+
 }

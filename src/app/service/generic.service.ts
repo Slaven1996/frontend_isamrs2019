@@ -27,6 +27,11 @@ export class GenericService {
     // const params: HttpParams = new HttpParams().set('_id',id);
     return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${id}`);
   }
+
+  getByName<T>(relativeUrl: string, name: string): Observable<T> {
+    // const params: HttpParams = new HttpParams().set('_id',id);
+    return this.http.get<T>(this.baseUrl + relativeUrl + `/${name}`);
+  }
   getListByName<T>(relativeUrl: string, name: string): Observable<T[]> {
     // const params: HttpParams = new HttpParams().set('_id',id);
     return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${name}`);
@@ -52,6 +57,9 @@ export class GenericService {
   }
   search<T>(relativeUrl: string, name: string): Observable<T[]> {
     return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${name}`);
+  }
+  findQuery<T>(relativeUrl: string, hotelName: string, dateFrom: string, dateUntil: string, numberOfBeds: string): Observable<T[]> {
+    return this.http.get<T[]>(this.baseUrl + relativeUrl + `/${hotelName}` + `/${dateFrom}` + `/${dateUntil}` + `/${numberOfBeds}`);
   }
 
 }
