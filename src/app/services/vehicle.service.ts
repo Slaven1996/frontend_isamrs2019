@@ -95,8 +95,9 @@ export class VehicleService {
             this.vehiclesSource.next(this.vehicles);
             return;
           }
-        }
-      }
+        }        
+      },      
+     error => {alert(error.message)}
     )
   }
 

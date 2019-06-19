@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.goToPageOfLoggedUser(currentUser);
       }
       else {
-        this.toastr.error('error logging');
+        //this.toastr.error('error logging');
       }
     });
 
