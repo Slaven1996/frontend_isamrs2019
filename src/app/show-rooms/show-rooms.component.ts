@@ -107,7 +107,7 @@ export class ShowRoomsComponent implements OnInit {
       (retValue: boolean) => {
         if (retValue) {
           this.toastr.success('You have successfully reserved a room!');
-          var r = confirm("You have successfully reserved a room!\n Would you like to see vehicles available for this period?");
+          var r = confirm("You have successfully reserved a room!\n Would you like to see vehicles available for this period? \nPress cancel if you don't wont.");
           var txt;
           if (r == true) {
             this.router.navigate(["/vehiclesSED/" + this.dateFrom + "/" + this.dateUntil + "/" + this.hotelName])

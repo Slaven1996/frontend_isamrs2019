@@ -35,6 +35,10 @@
                                 <input type="text" id="pricePerDay" name="pricePerDay" placeholder="" class="form-control" [(ngModel)]="this.vehicle.pricePerDay">
                             </div>
                             <div class="form-group">
+                                    <label for="sale" class="text-info">Sale:</label><br>
+                                    <input type="text" id="sale" name="sale" placeholder="" class="form-control" [(ngModel)]="this.vehicle.sale">
+                                </div>
+                            <div class="form-group">
                                 <button (click)="addVehicle()"  class="btn btn-primary">Save vehicle</button> 
                             </div>                            
                         </form>

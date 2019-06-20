@@ -30,9 +30,10 @@
       <th>GearBox</th>
       <th>Year</th>
       <th>Price per day</th>
-      <th *ngIf="!rentaCarAdmin">  Total Price </th>
+      <th *ngIf="!rentaCarAdmin">  Total Price without sale </th>
       <th *ngIf="rentaCarAdmin">  Available </th>
       <th>Vehicle Location</th>
+      <th>Sale</th>
       <th style="width: 15%">Action</th>
     </tr>
   </thead>
@@ -55,10 +56,10 @@
         {{vehicle.godinaProizvodnje}}
         </td>
       <td>
-        {{vehicle.pricePerDay}}
+        {{vehicle.pricePerDay}}e
       </td>
-      <td *ngIf="!rentaCarAdmin">
-        {{broj * vehicle.pricePerDay}}
+      <td *ngIf="!rentaCarAdmin" >
+        {{broj * vehicle.pricePerDay}}e
       </td>
       <td *ngIf="rentaCarAdmin">
         {{vehicle.available}}
@@ -66,6 +67,9 @@
       <td>
         {{vehicle.cityLocation}}
       </td>
+      <td >
+          {{vehicle.sale}}%
+        </td>
       <td>
         <button (click)='deleteVehicle(vehicle.id)' *ngIf="rentaCarAdmin" type="button" class="btn btn-danger">Delete</button>
         <button type="button" (click)='editVehicle(vehicle.id)' *ngIf="rentaCarAdmin" class="btn btn-warning">Edit</button>
