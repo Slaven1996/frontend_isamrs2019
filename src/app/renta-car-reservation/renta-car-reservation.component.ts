@@ -22,7 +22,7 @@ export class RentaCarReservationComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute, 
   ) { 
-    this.dateReservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '', vehicleId:'', city:''};
+    this.dateReservation = {id: '', dateFrom: '', dateUntil: '', numberOfSeats: '1', vehicleId:'', city:'', totalPrice:undefined};
   }
 
   ngOnInit() {

@@ -41,6 +41,8 @@ import { MyRentaCarReservationsComponent } from './my-renta-car-reservations/my-
 import { MyHotelReservationsComponent } from './my-hotel-reservations/my-hotel-reservations.component';
 import { RentaCarProfileComponent } from './renta-car-profile/renta-car-profile.component';
 import { HotelRoomReservationComponent } from './hotel-room-reservation/hotel-room-reservation.component';
+import { RentaCarReportComponent } from './renta-car-report/renta-car-report.component';
+import { RentaCarReservationSEDComponent } from './renta-car-reservation-sed/renta-car-reservation-sed.component';
 
 
 
@@ -77,7 +79,9 @@ import { HotelRoomReservationComponent } from './hotel-room-reservation/hotel-ro
     MyRentaCarReservationsComponent,
     MyHotelReservationsComponent,
     RentaCarProfileComponent,
-    HotelRoomReservationComponent
+    HotelRoomReservationComponent,
+    RentaCarReportComponent,
+    RentaCarReservationSEDComponent
   ],
   imports: [
     BrowserModule,

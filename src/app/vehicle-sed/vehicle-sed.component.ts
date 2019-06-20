@@ -69,13 +69,15 @@ export class VehicleSEDComponent implements OnInit {
     this.hotelID = +this.route.snapshot.paramMap.get('hotelId');
     this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
     this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');
+
+
     if(this.router.url === "/vehiclesSED"){
       this.getVehicles();
     }
     else if(this.router.url === "/vehiclesSED/" + this.dateFrom + "/" + this.dateUntil + "/" + this.hotelID){
       this.getVehiclesByHotel();
     }
-    else{      
+    else {      
       this.getVehiclesByDate();
     }    
   }
@@ -131,13 +133,14 @@ export class VehicleSEDComponent implements OnInit {
     this.broj = Math.ceil(diff / (1000 * 3600 * 24)); 
   };
   
-  getVehiclesByDate(){
+  getVehiclesByDate(){  
+    debugger; 
     this.rentaCarID = +this.route.snapshot.paramMap.get('id');
     //this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
     //this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');
     this.city = this.route.snapshot.paramMap.get('city')
     this.numberOfSeats = this.route.snapshot.paramMap.get('numberOfSeats')
-    
+
     this.vehicleService.vehiclesObservable.subscribe( vehicles => this.vehicles = vehicles);
     this.vehicleService.findVehiclesByRentaCarId(this.dateFrom, this.dateUntil,this.numberOfSeats,this.city, this.rentaCarID);
 

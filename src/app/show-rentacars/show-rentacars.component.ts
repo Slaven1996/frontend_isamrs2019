@@ -68,6 +68,10 @@ export class ShowRentacarsComponent implements OnInit {
 
   }
 
+  rentaCarReport(id){
+    this.router.navigate(["/renta-car-report/" + id])
+  }
+
   editRentaCar(id){
     this.router.navigate(["/edit-renta-car/"+id]);
   }

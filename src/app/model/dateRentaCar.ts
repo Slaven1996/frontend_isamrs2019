@@ -7,4 +7,5 @@ export interface dateRentaCar {
     numberOfSeats: string;
     vehicleId:string;
     city: string;
+    totalPrice: Number;
 }

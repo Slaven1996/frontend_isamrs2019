@@ -11,6 +11,7 @@ import { Location } from '@angular/common';
 export class HomePageComponent implements OnInit {
 
   private currentUserEmail: string;
+  private currentUserUsername: string;
 
   constructor(private router: Router, private loginService : LoginService, private location: Location) { }
 
@@ -18,7 +19,8 @@ export class HomePageComponent implements OnInit {
     if(localStorage.getItem('currentUser')!= null){
       const currentUser: any = this.loginService.currentUserValue;
 
-      this.currentUserEmail = currentUser.email} 
+      //this.currentUserEmail = currentUser.email
+      this.currentUserUsername = currentUser.username} 
       
   }
 
