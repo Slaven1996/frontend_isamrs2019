@@ -37,7 +37,7 @@ const routes: Routes = [
   { path: 'vehiclesSED', component: VehicleSEDComponent},
   { path: 'vehiclesSED/:dateFrom/:dateUntil/:numberOfSeats/:id', component: VehicleSEDComponent},
   { path: 'vehiclesSED/:dateFrom/:dateUntil/:numberOfSeats/:city/:id', component: VehicleSEDComponent},
-  { path: 'vehiclesSED/:dateFrom/:dateUntil/:hotelId', component: VehicleSEDComponent},
+  { path: 'vehiclesSED/:dateFrom/:dateUntil/:hotelName', component: VehicleSEDComponent},
   { path: 'add-flight', component: AddFlightComponent},
   { path: 'add-hotel', component: AddHotelComponent},
   { path: 'add-airline', component: AddAirlineComponent},

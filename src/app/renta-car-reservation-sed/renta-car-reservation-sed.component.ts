@@ -13,7 +13,6 @@ import { LoginService } from '../services/login.service';
 import { User } from '../model/user';
 import { RentaCarReservationComponent } from '../renta-car-reservation/renta-car-reservation.component';
 import { ReservationRentaCarService } from '../services/reservation-renta-car.service';
-import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
 
 @Component({
   selector: 'app-renta-car-reservation-sed',

@@ -19,8 +19,8 @@
                     </div>
                 </div>
             </div>
-          </div>
- 
+          </div>  
+          <div><h4 *ngIf="!vehicles || vehicles.length===0">&nbsp;&nbsp;There are currently no vehicles available.</h4></div>
 <table  class="table table-bordered table-hover table-dark">
   <thead>
     <tr>
@@ -31,6 +31,7 @@
       <th>Year</th>
       <th>Price per day</th>
       <th *ngIf="!rentaCarAdmin">  Total Price </th>
+      <th *ngIf="rentaCarAdmin">  Available </th>
       <th>Vehicle Location</th>
       <th style="width: 15%">Action</th>
     </tr>
@@ -59,6 +60,9 @@
       <td *ngIf="!rentaCarAdmin">
         {{broj * vehicle.pricePerDay}}
       </td>
+      <td *ngIf="rentaCarAdmin">
+        {{vehicle.available}}
+      </td>
       <td>
         {{vehicle.cityLocation}}
       </td>
@@ -74,6 +78,9 @@
         <div class="clearfix">
         </div>
     </div>
-</div>     
+    
+</div>   
+
+
 </body>
 

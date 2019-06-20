@@ -26,7 +26,7 @@ export class VehicleSEDComponent implements OnInit {
   public vehicles: Vehicle[];
   
   public searchParam: string;
-  public hotelID: number;
+  public hotelName:string;
   public rentaCarID: number;
   public dateFrom: string;
   public dateUntil: string;
@@ -66,15 +66,14 @@ export class VehicleSEDComponent implements OnInit {
 
 
     this.vehicles = [];
-    this.hotelID = +this.route.snapshot.paramMap.get('hotelId');
+    this.hotelName = this.route.snapshot.paramMap.get('hotelName');
     this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
     this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');
-
 
     if(this.router.url === "/vehiclesSED"){
       this.getVehicles();
     }
-    else if(this.router.url === "/vehiclesSED/" + this.dateFrom + "/" + this.dateUntil + "/" + this.hotelID){
+    else if(this.router.url === "/vehiclesSED/" + this.dateFrom + "/" + this.dateUntil + "/" + this.hotelName){
       this.getVehiclesByHotel();
     }
     else {      
@@ -124,7 +123,7 @@ export class VehicleSEDComponent implements OnInit {
   getVehiclesByHotel(){
 
     this.vehicleService.vehiclesObservable.subscribe( vehicles => this.vehicles = vehicles);
-    this.vehicleService.findVehiclesByHotelId(this.dateFrom, this.dateUntil, this.hotelID);
+    this.vehicleService.findVehiclesByHotelName(this.dateFrom, this.dateUntil, this.hotelName);
 
     var date1 = new Date (this.dateFrom);
     var date2 = new Date (this.dateUntil);
@@ -134,7 +133,6 @@ export class VehicleSEDComponent implements OnInit {
   };
   
   getVehiclesByDate(){  
-    debugger; 
     this.rentaCarID = +this.route.snapshot.paramMap.get('id');
     this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
     this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');

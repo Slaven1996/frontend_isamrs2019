@@ -60,8 +60,8 @@ export class VehicleService {
     });
   }
 
-  findVehiclesByHotelId(dateFrom, dateUntil, hotelId) {
-    this.http.get<Vehicle[]>("http://localhost:8080/api/reservationRentaCar/getVehicleByDateAndHotelId" + "/" + dateFrom + "/" + dateUntil + "/" +hotelId)
+  findVehiclesByHotelName(dateFrom, dateUntil, hotelName) {
+    this.http.get<Vehicle[]>("http://localhost:8080/api/reservationRentaCar/getVehicleByDateAndHotelName" + "/" + dateFrom + "/" + dateUntil + "/" +hotelName)
     .subscribe(vehicles => {
       this.vehicles = vehicles;
       this.vehiclesSource.next(this.vehicles);

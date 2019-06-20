@@ -107,7 +107,14 @@ export class ShowRoomsComponent implements OnInit {
       (retValue: boolean) => {
         if (retValue) {
           this.toastr.success('You have successfully reserved a room!');
-          this.router.navigate(["/my-hotel-reservations"])
+          var r = confirm("You have successfully reserved a room!\n Would you like to see vehicles available for this period?");
+          var txt;
+          if (r == true) {
+            this.router.navigate(["/vehiclesSED/" + this.dateFrom + "/" + this.dateUntil + "/" + this.hotelName])
+          } else {
+            this.router.navigate(['my-hotel-reservations']);
+          }     
+          
         }
         else {
           this.toastr.error('Error, problem while reserving a room!');
@@ -116,5 +123,4 @@ export class ShowRoomsComponent implements OnInit {
       () => this.toastr.error('Error, somethin went wrong!')
     );
   }
-
 }
