@@ -26,6 +26,7 @@ export class RentaCarReservationSEDComponent implements OnInit {
   public dateFrom: string;
   public dateUntil: string;
   public totalMoney: Number;
+  
 
   constructor(
     private http: HttpClient, 
