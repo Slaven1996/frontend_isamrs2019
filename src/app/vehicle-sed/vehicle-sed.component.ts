@@ -13,7 +13,7 @@ import { LoginService } from '../services/login.service';
 import { User } from '../model/user';
 import { RentaCarReservationComponent } from '../renta-car-reservation/renta-car-reservation.component';
 import { ReservationRentaCarService } from '../services/reservation-renta-car.service';
-import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
+import { ReservationDTO } from '../model/reservation-DTO';
 //import { disableBindings } from '@angular/core/src/render3';
 
 @Component({
@@ -81,10 +81,11 @@ export class VehicleSEDComponent implements OnInit {
   }
   
   reserveVehicle(id : number){
-    let reservation : VehicleReservationDTO= { 
+    let reservation : ReservationDTO= { 
       dateFrom: this.route.snapshot.paramMap.get('dateFrom'),
       dateUntil: this.route.snapshot.paramMap.get('dateUntil'),
-      vehicleId: id
+      vehicleId: id,
+      roomId: 0
     };
     this.reservationService.addReservation(reservation);
     

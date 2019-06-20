@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { dateRentaCar } from '../model/dateRentaCar';
 import { ToastrService } from 'ngx-toastr';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RoomQuery } from '../model/room-query';

@@ -32,10 +32,10 @@ export class ShowAirlinesComponent implements OnInit {
       this.airlines = airlines;
       if (this.airlines) {
         if (this.airlines.length > 0) {  
-          this.toastr.success('Airlines are successfully loaded!');
+         // this.toastr.success('Airlines are successfully loaded!');
         }
         else {
-          this.toastr.warning('There are no airlines at the moment!');
+          //this.toastr.warning('There are no airlines at the moment!');
         }
       }
       else {

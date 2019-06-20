@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 //import { disableBindings } from '@angular/core/src/render3';
-import { VehicleReservationDTO } from '../model/vehicle-reservation-DTO';
+import { ReservationDTO } from '../model/reservation-DTO';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class ReservationRentaCarService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-addReservation(dateRentaCar : VehicleReservationDTO) {
+addReservation(dateRentaCar : ReservationDTO) {
   this.http.post<dateRentaCar>(this.reservationUrl, dateRentaCar)
     .subscribe(
       addedReservation =>{

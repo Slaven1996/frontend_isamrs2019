@@ -53,10 +53,10 @@ export class ShowRentacarsComponent implements OnInit {
       this.rentacars = rentacars;
       if (this.rentacars) {
         if (this.rentacars.length > 0) {  
-          this.toastr.success('Rent-a-car services are successfully loaded!');
+         //this.toastr.success('Rent-a-car services are successfully loaded!');
         }
         else {
-          this.toastr.warning('There are no rent-a-car services at the moment!');
+          //this.toastr.warning('There are no rent-a-car services at the moment!');
         }
       }
       else {

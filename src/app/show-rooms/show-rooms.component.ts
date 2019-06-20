@@ -4,6 +4,9 @@ import { ToastrService } from 'ngx-toastr';
 import { GenericService } from '../service/generic.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { dateRentaCar } from '../model/dateRentaCar';
+import { ReservationDTO } from '../model/reservation-DTO';
+import { RoomService } from '../services/room.service';
+import { RoomReservationService } from '../service/room-reservation.service';
 
 @Component({
   selector: 'app-show-rooms',
@@ -21,17 +24,19 @@ export class ShowRoomsComponent implements OnInit {
   dateUntil: string;
   numberOfBeds: string;
   relativeUrlQuery: string;
+  relativeUrlReserve: string;
 
 
-  constructor(private genericService : GenericService, private toastr: ToastrService, private router: Router,
+  constructor(private genericService : GenericService, private reservationService: RoomReservationService, private toastr: ToastrService, private router: Router,
      private route: ActivatedRoute){
        this.relativeUrlRooms = '/hotel_admin/get_rooms';
-       this.relativeUrlQuery = '/room-reservation';
+       this.relativeUrlQuery = '/room-reservation/get-avalaible-rooms';
+       this.relativeUrlReserve = '/room-reservation/reserve-room';
+
        this.today=new Date();
   }
   ngOnInit() {
-    this.getRooms();
-    this.hotelName = this.route.snapshot.paramMap.get("hotelName");
+    this.getQueryRooms();
   }
 
   getRooms(){
@@ -58,6 +63,8 @@ export class ShowRoomsComponent implements OnInit {
   }
 
   getQueryRooms(){
+    
+    this.hotelName = this.route.snapshot.paramMap.get("hotelName");
     this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
     this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');
     this.numberOfBeds = this.route.snapshot.paramMap.get('numberOfBeds')
@@ -67,10 +74,10 @@ export class ShowRoomsComponent implements OnInit {
         this.rooms = rooms;
         if (this.rooms) {
           if (this.rooms.length > 0) {  
-            this.toastr.success('Available rooms are successfully loaded!');
+            //this.toastr.success('Available rooms are successfully loaded!');
           }
           else {
-            this.toastr.warning('There are no available rooms available at the moment!');
+            //this.toastr.warning('There are no available rooms available at the moment!');
           }
         }
         else {
@@ -89,6 +96,25 @@ export class ShowRoomsComponent implements OnInit {
   
   }
 
-
+  reserve(id : number){
+    let reservation : ReservationDTO = { 
+      dateFrom: this.route.snapshot.paramMap.get('dateFrom'),
+      dateUntil: this.route.snapshot.paramMap.get('dateUntil'),
+      vehicleId: 0,
+      roomId: id
+    };
+    this.genericService.save(this.relativeUrlReserve, reservation).subscribe(
+      (retValue: boolean) => {
+        if (retValue) {
+          this.toastr.success('You have successfully reserved a room!');
+          this.router.navigate(["/my-hotel-reservations"])
+        }
+        else {
+          this.toastr.error('Error, problem while reserving a room!');
+        }
+      },
+      () => this.toastr.error('Error, somethin went wrong!')
+    );
+  }
 
 }

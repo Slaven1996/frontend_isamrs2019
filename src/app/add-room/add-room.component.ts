@@ -22,7 +22,7 @@ export class AddRoomComponent implements OnInit {
   constructor(private genericService: GenericService, private toastr: ToastrService) {
 
     this.relativeUrl = "/hotel_admin/add_room";
-    this.room = {id: 0, number: 0, floor: 0 , roomType: '', numOfBeds: 0};
+    this.room = {id: 0, number: 0, floor: 0 , roomType: '', numOfBeds: 0, price: 0};
   }
   
 

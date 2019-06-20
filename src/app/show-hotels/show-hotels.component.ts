@@ -15,6 +15,7 @@ export class ShowHotelsComponent implements OnInit {
   relativeUrlForHotels: string;
   relativeUrlForRooms: string;
   relativeURLSearch: string;
+  relativeURLSearchCity: string;
   searchParam: string;
 
 
@@ -25,6 +26,7 @@ export class ShowHotelsComponent implements OnInit {
       this.relativeUrlForHotels = '/sys_admin/get_hotels';
       this.relativeUrlForRooms = '/sys_admin/get_rooms';
       this.relativeURLSearch = '/sys_admin/search_by_name';
+      this.relativeURLSearchCity = '/sys_admin/search_by_city';
       this.hotels = [];
 
   }
@@ -37,12 +39,6 @@ export class ShowHotelsComponent implements OnInit {
     (hotels: HotelForBackend[]) => {
       this.hotels = hotels;
       if (this.hotels) {
-        if (this.hotels.length > 0) {  
-          this.toastr.success('Hotels are successfully loaded!');
-        }
-        else {
-          this.toastr.warning('There are no hotels at the moment!');
-        }
       }
       else {
         this.toastr.error('Problem with loading of hotels!');
@@ -71,6 +67,25 @@ export class ShowHotelsComponent implements OnInit {
     this.toastr.warning('No search parameters!');
 
   }
+  }
+  searchHotelsCity()
+    {
+      if (this.searchParam!=='' && this.searchParam !== undefined){
+        return this.genericService.search(this.relativeURLSearchCity, this.searchParam).subscribe(
+        (list: HotelForBackend[])=>{
+          this.hotels = list;
+          if (this.hotels) {
+            if (!(this.hotels.length > 0)){              
+              this.toastr.warning('No hotel matches given parameters!');
+          }
+        }
+      }
+      );
+    }
+    else {
+      this.toastr.warning('No search parameters!');
+  
+    }
   }
 
   showRooms(hotelName: string) {
