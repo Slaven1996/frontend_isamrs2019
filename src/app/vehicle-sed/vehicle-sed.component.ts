@@ -136,8 +136,8 @@ export class VehicleSEDComponent implements OnInit {
   getVehiclesByDate(){  
     debugger; 
     this.rentaCarID = +this.route.snapshot.paramMap.get('id');
-    //this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
-    //this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');
+    this.dateFrom = this.route.snapshot.paramMap.get('dateFrom');
+    this.dateUntil = this.route.snapshot.paramMap.get('dateUntil');
     this.city = this.route.snapshot.paramMap.get('city')
     this.numberOfSeats = this.route.snapshot.paramMap.get('numberOfSeats')
 
