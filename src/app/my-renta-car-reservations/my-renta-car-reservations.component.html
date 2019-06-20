@@ -14,6 +14,7 @@
         <th>Vehicle</th>
         <th>Date from</th>
         <th>Date until</th>
+        <th>Total Price</th>
         <th>Action</th>
       </tr>
     </thead>
@@ -31,6 +32,9 @@
         </td>
         <td>
           {{reservation.dateUntil | date}}
+        </td>
+        <td>
+          {{reservation.totalPrice}}e
         </td>
         <td>
           <button type="button" (click)='cancelReservation(reservation.id, reservation.dateFrom)'class="btn btn-warning">Cancel</button>
