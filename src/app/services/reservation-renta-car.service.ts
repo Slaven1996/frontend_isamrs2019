@@ -25,7 +25,7 @@ addReservation(dateRentaCar : ReservationDTO) {
         this.reservations.push(addedReservation);
         this.reservationSource.next(this.reservations);
         alert("You have successfully reserved new vehicle. New reservation from " + dateRentaCar.dateFrom + "until" +  dateRentaCar.dateUntil + " saved!.");
-        this.router.navigate(["/homepage"])
+        this.router.navigate(["/my-renta-car-reservations"])
       }
     )
     
