@@ -19,6 +19,7 @@ export class HotelAdminPageComponent implements OnInit {
   hotelAdmin: User;
   today: Date;
   relativeUrlHotel: string;
+  private currentUserUsername: string;
 
   @Output()
   hotel:HotelForBackend;
@@ -30,7 +31,12 @@ export class HotelAdminPageComponent implements OnInit {
        this.today=new Date();
   }
   ngOnInit() {
-    
+    if(localStorage.getItem('currentUser')!= null){
+      const currentUser: any = this.loginService.currentUserValue;
+
+      //this.currentUserEmail = currentUser.email
+      this.currentUserUsername = currentUser.username} 
+
     this.getHotel();
 
   }
@@ -48,7 +54,7 @@ export class HotelAdminPageComponent implements OnInit {
 
   getRooms() {
 
-    this.genericService.getListByName(this.relativeUrlRooms, 'dash').subscribe(
+    this.genericService.getListByName(this.relativeUrlRooms, this.hotel.name).subscribe(
       (rooms: Room[]) => {
         this.rooms = rooms;
         if (this.rooms) {
@@ -65,6 +71,10 @@ export class HotelAdminPageComponent implements OnInit {
     },
     error => console.log('Error: ' + JSON.stringify(error))
     );
+  }
+
+  logout(){
+    this.loginService.logout();
   }
 
 }

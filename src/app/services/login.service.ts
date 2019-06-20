@@ -57,10 +57,15 @@ export class LoginService {
 }
   logout() {
     // remove user from local storage to log user out
+    const uloga = this.currentUserValue.userType;
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
     alert("You have succesfully logged out!")
+    if (uloga === 'HOTEL_ADMIN') this.router.navigate(["/login"]);
+    if (uloga === 'SYS_ADMIN') this.router.navigate(["/login"]);
     this.router.navigate(["/homepage"]);
+
+
   }
 
 }

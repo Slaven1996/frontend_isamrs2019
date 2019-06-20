@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
     const role = currentUser.userType
 
     if (role === 'SYS_ADMIN') {
-      this.router.navigate(['/add-admin']);
+      this.router.navigate(['/sys_admin']);
     }
     else if (role === 'RENTACAR_ADMIN') {
       this.router.navigate(['/vehiclesSED']);
