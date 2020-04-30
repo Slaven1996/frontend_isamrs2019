@@ -30,7 +30,7 @@
     "bootstrap-timepicker": "^0.5.2",
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.0",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "ng-bootstrap-modal": "^1.1.19",
     "ng-material-datetimepicker": "^1.18.3",
