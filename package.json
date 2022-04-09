@@ -31,7 +31,7 @@
     "core-js": "^2.5.4",
     "font-awesome": "^4.7.0",
     "jquery": "^3.4.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-bootstrap-modal": "^1.1.19",
     "ng-material-datetimepicker": "^1.18.3",
     "ng-pick-datetime": "^7.0.0",
